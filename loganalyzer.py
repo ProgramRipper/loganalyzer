@@ -3,6 +3,8 @@
 import argparse
 import textwrap
 
+from i18n import _
+
 from checks.vars import *
 from checks.core import *
 from checks.audio import *
@@ -41,9 +43,9 @@ def getSummary(messages):
             warning.append(i[1])
         elif (i[0] == LEVEL_INFO):
             info.append(i[1])
-    summary += "{}Critical: {}\n".format(RED, ", ".join(critical))
-    summary += "{}Warning:  {}\n".format(YELLOW, ", ".join(warning))
-    summary += "{}Info:     {}\n".format(CYAN, ", ".join(info))
+    summary += RED + _("Critical:").rjust(10) + ", ".join(critical) + "\n"
+    summary += YELLOW + _("Warning:").rjust(10) + ", ".join(warning) + "\n"
+    summary += CYAN + _("Info:").rjust(10) + ", ".join(info) + "\n"
     return summary
 
 
@@ -51,22 +53,22 @@ def getResults(messages):
     results = ""
     results += "{}--------------------------------------\n".format(RESET)
     results += " \n"
-    results += "Details\n"
-    results += "\nCritical:"
+    results += _("Details") + "\n"
+    results += "\n" + _("Critical:")
     for i in messages:
         if (i[0] == 3):
             results += "\n{}{}\n".format(RED, i[1])
             results += textOutput(i[2])
 
     results += "{} \n".format(RESET)
-    results += "\nWarning:"
+    results += "\n" + _("Warning:")
     for i in messages:
         if (i[0] == 2):
             results += "\n{}{}\n".format(YELLOW, i[1])
             results += textOutput(i[2])
 
     results += "{} \n".format(RESET)
-    results += "\nInfo:"
+    results += "\n" + _("Info:")
     for i in messages:
         if (i[0] == 1):
             results += "\n{}{}\n".format(CYAN, i[1])
@@ -203,8 +205,9 @@ def doAnalysis(url=None, filename=None):
                             messages.append(item)
                             seenMessages.add(itemTuple)
     else:
-        messages.append([LEVEL_CRITICAL, "NO LOG",
-                         "URL or file doesn't contain a log."])
+        messages.append(
+            [LEVEL_CRITICAL, _("NO LOG"), _("URL or file doesn't contain a log.")]
+        )
     # print(messages)
     ret = [i for i in messages if i is not None]
     # print(ret)
@@ -215,10 +218,12 @@ def main():
     parser = argparse.ArgumentParser()
     loggroup = parser.add_mutually_exclusive_group(required=True)
 
-    loggroup.add_argument("--url", '-u', dest='url',
-                          default=None, help="url of gist or haste with log")
-    loggroup.add_argument("--file", "-f", dest='file',
-                          default=None, help="local filenamne with log")
+    loggroup.add_argument(
+        "--url", "-u", dest="url", default=None, help=_("url of gist or haste with log")
+    )
+    loggroup.add_argument(
+        "--file", "-f", dest="file", default=None, help=_("local filename with log")
+    )
     flags = parser.parse_args()
 
     msgs = doAnalysis(url=flags.url, filename=flags.file)

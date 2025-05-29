@@ -1,3 +1,5 @@
+from i18n import _
+
 CURRENT_VERSION = '30.2.3'
 
 RED = "\033[1;31m"
@@ -15,4 +17,19 @@ LEVEL_WARNING = 2
 LEVEL_CRITICAL = 3
 LEVEL_NONE = 4
 
-cleanLog = "<br>To make a clean log file, please follow these steps: <br><br>1) Restart OBS. <br>2) Start your stream/recording for about 30 seconds. Make sure you replicate any issues as best you can, which means having any games/apps open and captured, etc. <br>3) Stop your stream/recording. <br>4) Select Help > Log Files > Upload Current Log File. Send that link via this troubleshooting tool or whichever support chat you are using."
+cleanLog = (
+    "<br>"
+    + _("To make a clean log file, please follow these steps:")
+    + "<br><br>"
+    + _("1) Restart OBS.")
+    + "<br>"
+    + _(
+        "2) Start your stream/recording for about 30 seconds. Make sure you replicate any issues as best you can, which means having any games/apps open and captured, etc."
+    )
+    + "<br>"
+    + _("3) Stop your stream/recording.")
+    + "<br>"
+    + _(
+        "4) Select Help -> Log Files -> Upload Current Log File. Send that link via this troubleshooting tool or whichever support chat you are using."
+    )
+)

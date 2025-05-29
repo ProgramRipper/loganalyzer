@@ -1,3 +1,5 @@
+from i18n import _
+
 from .vars import *
 from .utils.utils import *
 from .core import *
@@ -21,10 +23,18 @@ def checkImports(lines):
                 append += "<li>" + c.group("plugin").replace('.dll', '') + "</li>"
 
         if append:
-            append = "<br><br>Plugins affected:<ul>" + append + "</ul>"
-            return [LEVEL_CRITICAL, "Outdated Plugins (" + str(len(conflicts)) + ")",
-                    """Some plugins need to be manually updated, as they do not work with this version of OBS. Check our <a href="https://obsproject.com/kb/obs-studio-28-plugin-compatibility">Plugin Compatibility Guide</a> for known updates & download links.""" + append]
-
+            append = "<br><br>" + _("Plugins affected:") + "<ul>" + append + "</ul>"
+            return [
+                LEVEL_CRITICAL,
+                _("Outdated Plugins ({})").format(len(conflicts)),
+                _(
+                    "Some plugins need to be manually updated, as they do not work with this version of OBS. Check our {}Plugin Compatibility Guide{} for known updates & download links."
+                ).format(
+                    '<a href="https://obsproject.com/kb/obs-studio-28-plugin-compatibility">',
+                    "</a>",
+                )
+                + append,
+            ]
 
 def checkPluginList(lines):
     if (getLoadedModules(lines) and checkOperatingSystem(lines)):
@@ -58,5 +68,11 @@ def checkPluginList(lines):
         pluginString = pluginString[:-2]
 
         if (len(thirdPartyPlugins)):
-            return [LEVEL_INFO, "Third-Party Plugins (" + str(len(thirdPartyPlugins)) + ")",
-                    """You have the following third-party plugins installed:<br><ul><li>""" + pluginString + "</ul>"]
+            return [
+                LEVEL_INFO,
+                _("Third-Party Plugins ({})").format(len(thirdPartyPlugins)),
+                _("You have the following third-party plugins installed:")
+                + "<br><ul><li>"
+                + pluginString
+                + "</ul>",
+            ]

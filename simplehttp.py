@@ -8,6 +8,8 @@ from aiohttp import web
 import json
 import loganalyzer as analyze
 
+from i18n import _
+
 loop = asyncio.get_event_loop()
 threadPool = futures.ThreadPoolExecutor(thread_name_prefix='loganalyzer: worker thread')
 app = web.Application()
@@ -43,9 +45,9 @@ def getSummaryHTML(messages):
                 i[1] + """"><button type="button" class="btn btn-info">""" + \
                 i[1] + "</button></a></p>\n"
     if (len(critical) == 0):
-        critical = "No critical issues."
+        critical = _("No critical issues.")
     if (len(warning) == 0):
-        warning = "No warnings."
+        warning = _("No warnings.")
     if (len(info) == 0):
         info = "-"
     return critical, warning, info
@@ -104,9 +106,9 @@ def genFullHtmlResponse(url):
 
 def genEmptyHtmlResponse():
     """Generates a full HTML page with no analysis."""
-    no_log = "Please analyze a log first."
+    no_log = _("Please analyze a log first.")
     response_body = htmlTemplate.format(ph="",
-                                        description="no log",
+                                        description=_("no log"),
                                         summary_critical=no_log,
                                         summary_warning=no_log,
                                         summary_info=no_log,
@@ -180,8 +182,16 @@ def main():
     aiohttpLogger = logging.getLogger('aiohttp')
     aiohttpLogger.setLevel(logging.WARNING)
     parser = argparse.ArgumentParser()
-    parser.add_argument("--host", default="localhost", type=str, help="address to bind to", dest='host')
-    parser.add_argument("--port", default="8080", type=int, help="port to bind to", dest='port')
+    parser.add_argument(
+        "--host",
+        default="localhost",
+        type=str,
+        help=_("address to bind to"),
+        dest="host",
+    )
+    parser.add_argument(
+        "--port", default="8080", type=int, help=_("port to bind to"), dest="port"
+    )
     flags = parser.parse_args()
 
     loop.set_default_executor(threadPool)  # Set the default executor to our thread pool

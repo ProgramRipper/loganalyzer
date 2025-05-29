@@ -1,6 +1,8 @@
 import html
 from pkg_resources import parse_version
 
+from i18n import _
+
 from .vars import *
 from .utils.utils import *
 from .core import *
@@ -24,16 +26,37 @@ def checkGPU(lines):
         if (len(adapters) == 2 and ('Intel' in d3dAdapter[0]) and ('Arc' not in d3dAdapter[0])):
             if getAdapterName(adapters[0]) == getAdapterName(adapters[1]):
                 return None
-            return [LEVEL_CRITICAL, "Wrong GPU",
-                    """Your Laptop has two GPUs. OBS is running on the weak integrated Intel GPU. For better performance as well as game capture being available you should run OBS on the dedicated GPU. Check the <a href="https://obsproject.com/wiki/Laptop-Troubleshooting">Laptop Troubleshooting Guide</a>."""]
+            return [
+                LEVEL_CRITICAL,
+                _("Wrong GPU"),
+                _(
+                    "Your Laptop has two GPUs. OBS is running on the weak integrated Intel GPU. For better performance as well as game capture being available you should run OBS on the dedicated GPU. Check the {}Laptop Troubleshooting Guide{}."
+                ).format(
+                    '<a href="https://obsproject.com/wiki/Laptop-Troubleshooting">',
+                    "</a>",
+                ),
+            ]
         if (len(adapters) == 2 and ('Vega' in d3dAdapter[0])):
             if getAdapterName(adapters[0]) == getAdapterName(adapters[1]):
                 return None
-            return [LEVEL_CRITICAL, "Wrong GPU",
-                    """Your Laptop has two GPUs. OBS is running on the weak integrated AMD Vega GPU. For better performance as well as game capture being available you should run OBS on the dedicated GPU. Check the <a href="https://obsproject.com/wiki/Laptop-Troubleshooting">Laptop Troubleshooting Guide</a>."""]
+            return [
+                LEVEL_CRITICAL,
+                _("Wrong GPU"),
+                _(
+                    "Your Laptop has two GPUs. OBS is running on the weak integrated AMD Vega GPU. For better performance as well as game capture being available you should run OBS on the dedicated GPU. Check the {}Laptop Troubleshooting Guide{}."
+                ).format(
+                    '<a href="https://obsproject.com/wiki/Laptop-Troubleshooting">',
+                    "</a>",
+                ),
+            ]
         elif (len(adapters) == 1 and ('Intel' in adapters[0]) and ('Arc' not in adapters[0])):
-            return [LEVEL_WARNING, "Integrated GPU",
-                    "OBS is running on an Intel iGPU. This hardware is generally not powerful enough to be used for both gaming and running obs. Situations where only sources from e.g. cameras and capture cards are used might work."]
+            return [
+                LEVEL_WARNING,
+                _("Integrated GPU"),
+                _(
+                    "OBS is running on an Intel iGPU. This hardware is generally not powerful enough to be used for both gaming and running obs. Situations where only sources from e.g. cameras and capture cards are used might work."
+                ),
+            ]
 
 
 refresh_re = re.compile(r"""
@@ -107,8 +130,21 @@ def checkRefreshes(lines):
         rfrshs = "<br>"
         for output, hz in refreshes.items():
             rfrshs += "<br>" + output + ": <strong>" + str(int(hz)) + "</strong>Hz"
-        return [LEVEL_WARNING, "Mismatched Refresh Rates",
-                "The version of Windows you are running has a limitation which causes performance issues in hardware accelerated applications (such as games) if multiple monitors with different refresh rates are present. Your system's monitors have " + str(len(r)) + """ different refresh rates, so you are affected by this limitation. <br><br>To fix this issue, we recommend updating to the Windows 10 May 2020 Update. Follow <a href="https://blogs.windows.com/windowsexperience/2020/05/27/how-to-get-the-windows-10-may-2020-update/">these instructions</a> if you're not sure how to update.""" + rfrshs]
+        return [
+            LEVEL_WARNING,
+            _("Mismatched Refresh Rates"),
+            _(
+                "The version of Windows you are running has a limitation which causes performance issues in hardware accelerated applications (such as games) if multiple monitors with different refresh rates are present. Your system's monitors have {} different refresh rates, so you are affected by this limitation."
+            ).format(len(r))
+            + "<br><br>"
+            + _(
+                "To fix this issue, we recommend updating to the Windows 10 May 2020 Update. Follow {}these instructions{} if you're not sure how to update."
+            ).format(
+                '<a href="https://blogs.windows.com/windowsexperience/2020/05/27/how-to-get-the-windows-10-may-2020-update/">',
+                "</a>",
+            )
+            + rfrshs,
+        ]
     return
 
 
@@ -174,30 +210,60 @@ def checkWasapiSamples(lines):
     if len(s) > 1:
         smpls = ""
         if obsSample != "":
-            smpls += "<br>OBS Sample Rate: <strong>" + str(obsSample) + "</strong> Hz"
+            smpls += (
+                "<br>"
+                + _("OBS Sample Rate: ")
+                + "<strong>"
+                + str(obsSample)
+                + "</strong> Hz"
+            )
         for d, hz in samples.items():
             smpls += "<br>" + d + ": <strong>" + str(hz) + "</strong> Hz"
-        return [LEVEL_WARNING, "Mismatched Sample Rates",
-                "At least one of your audio devices has a sample rate that doesn't match the rest. This can result in audio drift over time or sound distortion. Check your audio devices in Windows settings (both Playback and Recording) and ensure the Default Format (under Advanced) is consistent. 48000 Hz is recommended." + smpls]
+        return [
+            LEVEL_WARNING,
+            _("Mismatched Sample Rates"),
+            _(
+                "At least one of your audio devices has a sample rate that doesn't match the rest. This can result in audio drift over time or sound distortion. Check your audio devices in Windows settings (both Playback and Recording) and ensure the Default Format (under Advanced) is consistent. 48000 Hz is recommended."
+            )
+            + smpls,
+        ]
 
 
 def checkMicrosoftSoftwareGPU(lines):
     if (len(search('Microsoft Basic Render Driver', lines)) > 0):
-        return [LEVEL_CRITICAL, "No GPU driver available",
-                "Your GPU is using the Microsoft Basic Render Driver, which is a pure software render. This will cause very high CPU load when used with OBS. Make sure to install proper drivers for your GPU. To use OBS in a virtual machine, you need to enable GPU passthrough."]
+        return [
+            LEVEL_CRITICAL,
+            _("No GPU driver available"),
+            _(
+                "Your GPU is using the Microsoft Basic Render Driver, which is a pure software render. This will cause very high CPU load when used with OBS. Make sure to install proper drivers for your GPU. To use OBS in a virtual machine, you need to enable GPU passthrough."
+            ),
+        ]
 
 
 def checkOpenGLonWindows(lines):
     opengl = search('Warning: The OpenGL renderer is currently in use.', lines)
     if (len(opengl) > 0):
-        return [LEVEL_CRITICAL, "OpenGL Renderer",
-                "The OpenGL renderer should not be used on Windows, as it is not well optimized and can have visual artifacting. Switch back to the Direct3D renderer in Settings > Advanced."]
+        return [
+            LEVEL_CRITICAL,
+            _("OpenGL Renderer"),
+            _(
+                "The OpenGL renderer should not be used on Windows, as it is not well optimized and can have visual artifacting. Switch back to the Direct3D renderer in Settings -> Advanced."
+            ),
+        ]
 
 
 def checkGameDVR(lines):
     if search('Game DVR Background Recording: On', lines):
-        return [LEVEL_WARNING, "Windows 10 Game DVR",
-                """To ensure that OBS Studio has the hardware resources it needs for realtime streaming and recording, we recommend disabling the "Game DVR Background Recording" feature via <a href="https://obsproject.com/wiki/How-to-disable-Windows-10-Gaming-Features#game-dvrcaptures">these instructions</a>."""]
+        return [
+            LEVEL_WARNING,
+            _("Windows 10 Game DVR"),
+            _(
+                'To ensure that OBS Studio has the hardware resources it needs for realtime streaming and recording, we recommend disabling the "Game DVR Background Recording" feature via {}these instructions{}.'
+            ).format(
+                '<a href="https://obsproject.com/wiki/How-to-disable-Windows-10-Gaming-Features#game-dvrcaptures">',
+                "</a>",
+            ),
+        ]
 
 
 def checkGameMode(lines):
@@ -210,35 +276,62 @@ def checkGameMode(lines):
         return
 
     if search("Game Mode: On", lines) and verinfo["release"] < 1809:
-        return [LEVEL_WARNING, "Windows Game Mode",
-                """In some versions of Windows 10 (prior to version 1809), the "Game Mode" feature interferes with OBS Studio's normal functionality by starving it of CPU and GPU resources. We recommend disabling it via <a href="https://obsproject.com/wiki/How-to-disable-Windows-10-Gaming-Features#game-mode">these instructions</a>."""]
+        return [
+            LEVEL_WARNING,
+            _("Windows Game Mode"),
+            _(
+                'In some versions of Windows 10 (prior to version 1809), the "Game Mode" feature interferes with OBS Studio\'s normal functionality by starving it of CPU and GPU resources. We recommend disabling it via {}these instructions{}.'
+            ).format(
+                '<a href="https://obsproject.com/wiki/How-to-disable-Windows-10-Gaming-Features#game-mode">',
+                "</a>",
+            ),
+        ]
 
     # else
     if search("Game Mode: Off", lines):
-        return [LEVEL_INFO, "Windows Game Mode",
-                """In Windows 10 versions 1809 and newer, we recommend that "Game Mode" be enabled for maximum gaming performance. Game Mode can be enabled via the Windows 10 "Settings" app, under Gaming > <a href="ms-settings:gaming-gamemode">Game Mode</a>."""]
+        return [
+            LEVEL_INFO,
+            _("Windows Game Mode"),
+            _(
+                'In Windows 10 versions 1809 and newer, we recommend that "Game Mode" be enabled for maximum gaming performance. Game Mode can be enabled via the Windows 10 "Settings" app, under Gaming -> {}Game Mode{}.'
+            ).format(
+                '<a href="ms-settings:gaming-gamemode">',
+                "</a>",
+            ),
+        ]
 
 
 def checkWin10Hags(lines):
-    d3dAdapter = search('Loading up D3D11', lines)
-    hagsMessage = """The Hardware-accelerated GPU scheduling ("HAGS") feature added with Windows 10 is currently known to cause performance and capture issues with OBS, games and overlay tools. It's an experimental feature and we recommend disabling it via <a href="ms-settings:display-advancedgraphics">this screen</a> or <a href="https://obsproject.com/wiki/How-to-disable-Windows-10-Hardware-GPU-Scheduler">these instructions</a>."""
-    if search('Hardware GPU Scheduler: On', lines):
-        return [LEVEL_CRITICAL, "Hardware-accelerated GPU Scheduler",
-                hagsMessage]
-    elif search('Hardware GPU Scheduler: Probably On', lines) and ('NVIDIA' in d3dAdapter[0]):
-        return [LEVEL_CRITICAL, "Hardware-accelerated GPU Scheduler",
-                hagsMessage]
-    elif search('Hardware-Accelerated GPU Scheduling enabled on adapter!', lines):
-        return [LEVEL_CRITICAL, "Hardware-accelerated GPU Scheduler",
-                hagsMessage]
+    d3dAdapter = search("Loading up D3D11", lines)
+    hagsMessage = _(
+        'The Hardware-accelerated GPU scheduling ("HAGS") feature added with Windows 10 is currently known to cause performance and capture issues with OBS, games and overlay tools. It\'s an experimental feature and we recommend disabling it via {}this screen{} or {}these instructions{}.'
+    ).format(
+        '<a href="ms-settings:display-advancedgraphics">',
+        "</a>",
+        '<a href="https://obsproject.com/wiki/How-to-disable-Windows-10-Hardware-GPU-Scheduler">',
+        "</a>",
+    )
+    if search("Hardware GPU Scheduler: On", lines):
+        return [LEVEL_CRITICAL, _("Hardware-accelerated GPU Scheduler"), hagsMessage]
+    elif search("Hardware GPU Scheduler: Probably On", lines) and (
+        "NVIDIA" in d3dAdapter[0]
+    ):
+        return [LEVEL_CRITICAL, _("Hardware-accelerated GPU Scheduler"), hagsMessage]
+    elif search("Hardware-Accelerated GPU Scheduling enabled on adapter!", lines):
+        return [LEVEL_CRITICAL, _("Hardware-accelerated GPU Scheduler"), hagsMessage]
 
 
 def check940(lines):
     gpu = search('NVIDIA GeForce 940', lines)
     attempt = search('NVENC encoder', lines)
     if (len(gpu) > 0) and (len(attempt) > 0):
-        return [LEVEL_CRITICAL, "NVENC Not Supported",
-                """The NVENC Encoder is not supported on the NVIDIA 940 and 940MX. Recording fails to start because of this. Please select "Software (x264)" or "Hardware (QSV)" as encoder instead in Settings > Output."""]
+        return [
+            LEVEL_CRITICAL,
+            _("NVENC Not Supported"),
+            _(
+                'The NVENC Encoder is not supported on the NVIDIA 940 and 940MX. Recording fails to start because of this. Please select "Software (x264)" or "Hardware (QSV)" as encoder instead in Settings -> Output.'
+            ),
+        ]
 
 
 # Log line examples:
@@ -295,18 +388,26 @@ def checkWindowsVer(lines):
     # This is such a hack, but it's unclear how to do this better
     if verinfo["version"] == "10.0" and verinfo["release"] == 0:
         if verinfo["build"] > 22000:
-            msg = "You are running Windows 11 Insider build %d. Some checks that are applicable only to specific Windows versions will not be performed. Also, because Insider builds are test versions, you may have problems that would not happen with release versions of Windows 11." % (
-                verinfo["build"])
-            return [LEVEL_WARNING, "Windows 11 Insider Build", msg]
+            msg = _(
+                "You are running Windows 11 Insider build {}. Some checks that are applicable only to specific Windows versions will not be performed. Also, because Insider builds are test versions, you may have problems that would not happen with release versions of Windows 11."
+            ).format(verinfo["build"])
+            return [LEVEL_WARNING, _("Windows 11 Insider Build"), msg]
         else:
-            msg = "You are running an unknown Windows 10 release (build %d), which means you are probably using an Insider build. Some checks that are applicable only to specific Windows versions will not be performed. Also, because Insider builds are test versions, you may have problems that would not happen with release versions of Windows." % (
-                verinfo["build"])
-            return [LEVEL_WARNING, "Windows 10 Version Unknown", msg]
+            msg = _(
+                "You are running an unknown Windows 10 release (build {}), which means you are probably using an Insider build. Some checks that are applicable only to specific Windows versions will not be performed. Also, because Insider builds are test versions, you may have problems that would not happen with release versions of Windows."
+            ).format(verinfo["build"])
+            return [LEVEL_WARNING, _("Windows 10 Version Unknown"), msg]
 
     if "EoS" in verinfo and datetime.date.today() > verinfo["EoS"]:
         wv = "%s (EOL)" % (html.escape(verinfo["name"]))
-        msg = "You are running %s, which has not been supported by Microsoft since <strong>%s</strong>. We recommend updating to the latest Windows release to ensure continued security, functionality, and compatibility." % (
-            html.escape(verinfo["name"]), verinfo["EoS"].strftime("%B %Y"))
+        msg = _(
+            "You are running {}, which has not been supported by Microsoft since {}{}{}. We recommend updating to the latest Windows release to ensure continued security, functionality, and compatibility."
+        ).format(
+            html.escape(verinfo["name"]),
+            "<strong>",
+            verinfo["EoS"].strftime("%B %Y"),
+            "</strong>",
+        )
         return [LEVEL_WARNING, wv, msg]
 
     # special case for OBS 24.0.3 and earlier, which report Windows 10/1909
@@ -314,19 +415,31 @@ def checkWindowsVer(lines):
     versionString = getOBSVersionString(lines)
     if parse_version(versionString) <= parse_version("24.0.3"):
         if verinfo["version"] == "10.0" and verinfo["release"] == 1903:
-            return [LEVEL_INFO, "Windows 10 1903/1909",
-                    "Due to a bug in OBS versions 24.0.3 and earlier, the exact release of Windows 10 you are using cannot be determined. You are using either release 1903, or release 1909. Fortunately, there were no major changes in behavior between Windows 10 release 1903 and Windows 10 release 1909, and instructions given here for release 1903 can also be used for release 1909, and vice versa."]
+            return [
+                LEVEL_INFO,
+                _("Windows 10 1903/1909"),
+                _(
+                    "Due to a bug in OBS versions 24.0.3 and earlier, the exact release of Windows 10 you are using cannot be determined. You are using either release 1903, or release 1909. Fortunately, there were no major changes in behavior between Windows 10 release 1903 and Windows 10 release 1909, and instructions given here for release 1903 can also be used for release 1909, and vice versa."
+                ),
+            ]
 
     # our windows version isn't out of support, so just say what version the user has and when
     # it actually does go out of support
     wv = "%s (OK)" % (html.escape(verinfo["name"]))
 
     if "EoS" in verinfo:
-        msg = "You are running %s, which will be supported by Microsoft until <strong>%s</strong>." % (
-            html.escape(verinfo["name"]), verinfo["EoS"].strftime("%B %Y"))
+        msg = _(
+            "You are running {}, which will be supported by Microsoft until {}{}{}."
+        ).format(
+            html.escape(verinfo["name"]),
+            "<strong>",
+            verinfo["EoS"].strftime("%B %Y"),
+            "</strong>",
+        )
     else:
-        msg = "You are running %s, for which Microsoft has not yet announced an end of life date." % (
-            html.escape(verinfo["name"]))
+        msg = _(
+            "You are running {}, for which Microsoft has not yet announced an end of life date."
+        ).format(html.escape(verinfo["name"]))
 
     return [LEVEL_INFO, wv, msg]
 
@@ -335,8 +448,11 @@ def checkWindowsARM64(lines):
     verinfo = getWindowsVersion(lines)
     if verinfo:
         if verinfo["arm"]:
-            return [LEVEL_INFO, "Windows ARM64",
-                    "You are running OBS Studio on an ARM64 Windows system."]
+            return [
+                LEVEL_INFO,
+                _("Windows ARM64"),
+                _("You are running OBS Studio on an ARM64 Windows system."),
+            ]
 
 
 def checkAdmin(lines):
@@ -345,12 +461,22 @@ def checkAdmin(lines):
         renderlag = getRenderLag(lines)
 
         if renderlag >= 3:
-            return [LEVEL_WARNING, "Not Admin",
-                    "OBS is not running as Administrator. Because of this, OBS will not be able to Game Capture certain games, and it will not be able to request a higher GPU priority for itself -- which is the likely cause of the render lag you are currently experincing. Run OBS as Administrator to help alleviate this problem."]
+            return [
+                LEVEL_WARNING,
+                _("Not Admin"),
+                _(
+                    "OBS is not running as Administrator. Because of this, OBS will not be able to Game Capture certain games, and it will not be able to request a higher GPU priority for itself -- which is the likely cause of the render lag you are currently experiencing. Run OBS as Administrator to help alleviate this problem."
+                ),
+            ]
 
         # else
-        return [LEVEL_INFO, "Not Admin",
-                "OBS is not running as Administrator. This can lead to OBS not being able to Game Capture certain games. If you are not running into issues, you can ignore this."]
+        return [
+            LEVEL_INFO,
+            _("Not Admin"),
+            _(
+                "OBS is not running as Administrator. This can lead to OBS not being able to Game Capture certain games. If you are not running into issues, you can ignore this."
+            ),
+        ]
 
 
 def check32bitOn64bit(lines):
@@ -358,11 +484,21 @@ def check32bitOn64bit(lines):
     obsVersion = getOBSVersionLine(lines)
     if (len(winVersion) > 0 and '64-bit' in winVersion[0] and ('32-bit' in obsVersion or '32bit' in obsVersion)):
         # thx to secretply for the bugfix
-        return [LEVEL_WARNING, "32-bit OBS on 64-bit Windows",
-                "You are running the 32 bit version of OBS on a 64 bit system. This will reduce performance and greatly increase the risk of crashes due to memory limitations. You should only use the 32 bit version if you have a capture device that lacks 64 bit drivers. Please run OBS using the 64-bit shortcut."]
+        return [
+            LEVEL_WARNING,
+            _("32-bit OBS on 64-bit Windows"),
+            _(
+                "You are running the 32 bit version of OBS on a 64 bit system. This will reduce performance and greatly increase the risk of crashes due to memory limitations. You should only use the 32 bit version if you have a capture device that lacks 64 bit drivers. Please run OBS using the 64-bit shortcut."
+            ),
+        ]
 
 
 def checkWindowsARM64EmulationStatus(lines):
     if (len(search('Windows ARM64: Running with x64 emulation', lines)) > 0):
-        return [LEVEL_WARNING, "x64 OBS on Windows ARM64",
-                "You are running the x64 version of OBS on an ARM64 Windows system. This will greatly reduce performance due to the mandatory use of emulation."]
+        return [
+            LEVEL_WARNING,
+            _("x64 OBS on Windows ARM64"),
+            _(
+                "You are running the x64 version of OBS on an ARM64 Windows system. This will greatly reduce performance due to the mandatory use of emulation."
+            ),
+        ]
