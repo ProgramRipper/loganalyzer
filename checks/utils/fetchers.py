@@ -1,6 +1,8 @@
-import requests
 import re
 
+from httpx import AsyncClient
+
+client = AsyncClient()
 
 # gist.github.com
 # --------------------------------------
@@ -11,10 +13,10 @@ def matchGist(url):
         r"(?i)\b((?:https?:(?:/{1,3}gist\.github\.com)/)(anonymous/)?([a-z0-9]{32}))", url)
 
 
-def getGist(inputUrl):
+async def getGist(inputUrl):
     API_URL = "https://api.github.com"
     gistId = inputUrl
-    return requests.get('{0}/gists/{1}'.format(API_URL, gistId)).json()
+    return (await client.get('{0}/gists/{1}'.format(API_URL, gistId))).json()
 
 
 def getLinesGist(gistObject):
@@ -38,9 +40,9 @@ def matchHaste(url):
         r"(?i)\b((?:https?:(?:/{1,3}(www\.)?hastebin\.com)/)([a-z0-9]{10}))", url)
 
 
-def getHaste(hasteId):
+async def getHaste(hasteId):
     API_URL = "https://hastebin.com"
-    return requests.get('{0}/documents/{1}'.format(API_URL, hasteId)).json()
+    return (await client.get('{0}/documents/{1}'.format(API_URL, hasteId))).json()
 
 
 def getLinesHaste(hasteObject):
@@ -61,9 +63,9 @@ def matchObs(url):
         r"(?i)\b((?:https?:(?:/{1,3}(www\.)?obsproject\.com)/logs/)(.{16}))", url)
 
 
-def getObslog(obslogId):
+async def getObslog(obslogId):
     API_URL = "https://obsproject.com/logs"
-    return requests.get('{0}/{1}'.format(API_URL, obslogId)).text
+    return (await client.get('{0}/{1}'.format(API_URL, obslogId))).text
 
 
 def getLinesObslog(obslogText):
@@ -79,9 +81,9 @@ def matchPastebin(url):
         r"(?i)\b((?:https?:(?:/{1,3}(www\.)?pastebin\.com/))(?:raw/)?(.{8}))", url)
 
 
-def getRawPaste(obslogId):
+async def getRawPaste(obslogId):
     API_URL = "https://pastebin.com/raw"
-    return requests.get('{0}/{1}'.format(API_URL, obslogId)).text
+    return (await client.get('{0}/{1}'.format(API_URL, obslogId))).text
 
 
 def getLinesPaste(obslogText):
@@ -97,9 +99,9 @@ def matchDiscord(url):
         r"(?i)\b((?:https?:(?:/{1,3}cdn\.discordapp\.com)/)(attachments/)([0-9]{18,}/[0-9]{18,}/(?:[0-9\-\_]{19}|message).txt(?:\?\S+\&)?))", url)
 
 
-def getRawDiscord(obslogId):
+async def getRawDiscord(obslogId):
     API_URL = "https://cdn.discordapp.com/attachments"
-    resp = requests.get('{0}/{1}'.format(API_URL, obslogId))
+    resp = await client.get('{0}/{1}'.format(API_URL, obslogId))
     if resp.status_code == 200:
         return resp.text
     return ""

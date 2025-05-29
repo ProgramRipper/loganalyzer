@@ -2,17 +2,15 @@
 
 import logging
 import argparse
-from concurrent import futures
-import asyncio
-from aiohttp import web
-import json
+import logging
+
+from starlette.applications import Starlette
+from starlette.responses import HTMLResponse, JSONResponse
+from starlette.routing import Route
+
 import loganalyzer as analyze
 
 from i18n import _
-
-loop = asyncio.get_event_loop()
-threadPool = futures.ThreadPoolExecutor(thread_name_prefix='loganalyzer: worker thread')
-app = web.Application()
 
 with open("templates/index.html", "r") as f:  # Grab main HTML page
     htmlTemplate = f.read()
@@ -89,9 +87,9 @@ def getDescr(messages):
     return res
 
 
-def genFullHtmlResponse(url):
+async def genFullHtmlResponse(url):
     """Runs an analysis and returns a full HTML page with the response."""
-    msgs = analyze.doAnalysis(url=url)
+    msgs = await analyze.doAnalysis(url=url)
     crit, warn, info = getSummaryHTML(msgs)
     details = getDetailsHTML(msgs)
     response = htmlTemplate.format(ph=url,
@@ -116,10 +114,10 @@ def genEmptyHtmlResponse():
     return response_body
 
 
-def genJsonResponse(url, detailed):
+async def genJsonResponse(url, detailed):
     """Runs an analysis and returns the results as JSON."""
     msgs = []
-    msgs = analyze.doAnalysis(url=url)
+    msgs = await analyze.doAnalysis(url=url)
     critical = []
     warning = []
     info = []
@@ -136,14 +134,17 @@ def genJsonResponse(url, detailed):
     return {"critical": critical, "warning": warning, "info": info}
 
 
-def sync_request_handler(request):
-    """Non-async request handler processed within the thread pool. Do not share global resources without a Lock."""
-    query = request.query  # Get HTTP query string as a MultiDict
+async def request_handler(request):
+    query = request.query_params  # Get HTTP query string as a MultiDict
     format = 'html'
     if 'format' in query:  # Check for requested response format
         format = query['format'].lower()
 
-    logging.info('New HTTP Request | Remote: {} | Format: {} | Url: {}'.format(request.remote, format, 'url' in query))
+    logging.info(
+        "New HTTP Request | Remote: {} | Format: {} | Url: {}".format(
+            getattr(request.client, "host", ""), format, "url" in query
+        )
+    )
 
     if 'url' in query:
         url = query['url']
@@ -152,35 +153,33 @@ def sync_request_handler(request):
             logging.info('Invalid URL: {}'.format(url))
             if format == 'json':
                 logging.info('Returning empty JSON response.')
-                return web.json_response({})
+                return JSONResponse({})
             else:
                 logging.info('Returning default HTML response.')
-                return web.Response(text=genEmptyHtmlResponse(), content_type='text/html')
+                return HTMLResponse(genEmptyHtmlResponse())
         if format == 'json':
             logging.info('Returning JSON response for url: {}'.format(url))
-            response = genJsonResponse(url, detailed)
-            return web.json_response(response)
+            response = await genJsonResponse(url, detailed)
+            return JSONResponse(response)
         else:
             logging.info('Returning HTML response for url: {}'.format(url))
-            return web.Response(text=genFullHtmlResponse(url), content_type='text/html')
+            return HTMLResponse(await genFullHtmlResponse(url))
     else:
         if format == 'json':
             logging.info('Returning empty JSON response.')
-            return web.json_response({})
+            return JSONResponse({})
         else:
             logging.info('Returning default HTML response.')
-            return web.Response(text=genEmptyHtmlResponse(), content_type='text/html')
+            return HTMLResponse(genEmptyHtmlResponse())
 
 
-async def request_handler(request):
-    """Async request handler. Submits the incoming request to the thread pool to be handled."""
-    return (await loop.run_in_executor(None, sync_request_handler, request))  # Submits the request to a handler inside the threadpool
+app = Starlette(routes=[Route("/", request_handler, methods=["GET"])])
 
 
 def main():
+    import uvicorn
+
     logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] [%(funcName)s] %(message)s")
-    aiohttpLogger = logging.getLogger('aiohttp')
-    aiohttpLogger.setLevel(logging.WARNING)
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--host",
@@ -194,17 +193,12 @@ def main():
     )
     flags = parser.parse_args()
 
-    loop.set_default_executor(threadPool)  # Set the default executor to our thread pool
-    app.add_routes([web.get('/', request_handler)])
-    applicationTask = loop.create_task(web._run_app(app, host=flags.host, port=flags.port, print=logging.info))
     try:
-        loop.run_forever()
+        uvicorn.run(app, host=flags.host, port=flags.port)
     except KeyboardInterrupt:
         pass
     finally:
         logging.info('Exiting application.')
-        applicationTask.cancel()  # Shuts down the HTTP server
-        threadPool.shutdown()  # Shuts down the running thread pool
 
 
 if __name__ == '__main__':

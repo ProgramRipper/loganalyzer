@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+import asyncio
 import textwrap
 
 from i18n import _
@@ -78,7 +79,7 @@ def getResults(messages):
     return results
 
 
-def doAnalysis(url=None, filename=None):
+async def doAnalysis(url=None, filename=None):
     messages = []
     success = False
     logLines = []
@@ -90,22 +91,22 @@ def doAnalysis(url=None, filename=None):
         pastebin = matchPastebin(url)
         discord = matchDiscord(url)
         if (gist):
-            gistObject = getGist(gist.groups()[-1])
+            gistObject = await getGist(gist.groups()[-1])
             logLines = getLinesGist(gistObject)
             messages.append(getDescriptionGist(gistObject))
             success = True
         elif (haste):
-            hasteObject = getHaste(haste.groups()[-1])
+            hasteObject = await getHaste(haste.groups()[-1])
             logLines = getLinesHaste(hasteObject)
             messages.append(getDescription(logLines))
             success = True
         elif (obs):
-            obslogObject = getObslog(obs.groups()[-1])
+            obslogObject = await getObslog(obs.groups()[-1])
             logLines = getLinesObslog(obslogObject)
             messages.append(getDescription(logLines))
             success = True
         elif (pastebin):
-            pasteObject = getRawPaste(pastebin.groups()[-1])
+            pasteObject = await getRawPaste(pastebin.groups()[-1])
             logLines = getLinesPaste(pasteObject)
             messages.append(getDescription(logLines))
             success = True
@@ -113,7 +114,7 @@ def doAnalysis(url=None, filename=None):
             attachment = discord.groups()[-1]
             if attachment == "message":
                 attachment = discord.groups()[-2]
-            pasteObject = getRawDiscord(attachment)
+            pasteObject = await getRawDiscord(attachment)
             if len(pasteObject) > 0:
                 logLines = getLinesDiscord(pasteObject)
                 messages.append(getDescription(logLines))
@@ -226,7 +227,7 @@ def main():
     )
     flags = parser.parse_args()
 
-    msgs = doAnalysis(url=flags.url, filename=flags.file)
+    msgs = asyncio.run(doAnalysis(url=flags.url, filename=flags.file))
     print(getSummary(msgs))
     print(getResults(msgs))
 
