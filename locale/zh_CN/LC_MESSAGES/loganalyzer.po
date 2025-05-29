@@ -1,0 +1,1497 @@
+# Chinese (Simplified, China) translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-05-29 18:24+0800\n"
+"PO-Revision-Date: 2025-05-28 18:36+0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_Hans_CN\n"
+"Language-Team: zh_Hans_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: loganalyzer.py:46 loganalyzer.py:57
+msgid "Critical:"
+msgstr "严重："
+
+#: loganalyzer.py:47 loganalyzer.py:64
+msgid "Warning:"
+msgstr "警告："
+
+#: loganalyzer.py:48 loganalyzer.py:71
+msgid "Info:"
+msgstr "信息："
+
+#: loganalyzer.py:56
+msgid "Details"
+msgstr "细节"
+
+#: loganalyzer.py:209
+msgid "NO LOG"
+msgstr "没有日志"
+
+#: loganalyzer.py:209
+msgid "URL or file doesn't contain a log."
+msgstr "链接或文件不包含日志。"
+
+#: loganalyzer.py:222
+msgid "url of gist or haste with log"
+msgstr "包含日志的 gist 或 haste 的链接"
+
+#: loganalyzer.py:225
+msgid "local filename with log"
+msgstr "包含日志的本地文件名"
+
+#: simplehttp.py:48
+msgid "No critical issues."
+msgstr "没有严重问题。"
+
+#: simplehttp.py:50
+msgid "No warnings."
+msgstr "没有警告。"
+
+#: simplehttp.py:109
+msgid "Please analyze a log first."
+msgstr "请先分析日志。"
+
+#: simplehttp.py:111
+msgid "no log"
+msgstr "没有日志"
+
+#: simplehttp.py:189
+msgid "address to bind to"
+msgstr "要绑定的地址"
+
+#: simplehttp.py:193
+msgid "port to bind to"
+msgstr "要绑定的端口"
+
+#: checks/audio.py:26
+msgid "Audio Monitoring Device Failure"
+msgstr "音频监控设备故障"
+
+#: checks/audio.py:27
+msgid "Your audio monitoring device failed to load. To correct this:"
+msgstr "您的音频监控设备未能加载。要解决此问题："
+
+#: checks/audio.py:30
+msgid ""
+"1) Go to Settings -> Audio and set your monitoring device to something "
+"other than what it is now. Press Apply."
+msgstr "1) 前往“设置”->“音频”，将监听设备设置为与当前不同的设置。点击“应用”。"
+
+#: checks/audio.py:33
+msgid "2) Restart OBS."
+msgstr "2) 重启 OBS。"
+
+#: checks/audio.py:36
+msgid ""
+"3) Go to Settings -> Audio and set your monitoring device to the correct "
+"one. Press Apply."
+msgstr "3）转到“设置”->“音频”，并将监控设备设置为正确的设备。点击“应用”。"
+
+#: checks/audio.py:58
+msgid "Source affected (potential cause):"
+msgstr "受影响的源（可能的原因）："
+
+#: checks/audio.py:66
+msgid "Max Audio Buffering"
+msgstr "最大音频缓冲"
+
+#: checks/audio.py:68
+msgid ""
+"Audio buffering hit the maximum value. This can be an indicator of very "
+"high system load and may affect stream latency or cause individual audio "
+"sources to stop working. Keep an eye on CPU usage especially, and close "
+"background programs if needed."
+msgstr "音频缓冲达到了最大值。这可能表明系统负载非常高，并可能影响直播延迟或导致单个音频源停止工作。请特别注意 CPU 使用率，并在需要时关闭后台程序。"
+
+#: checks/audio.py:72
+msgid ""
+"Occasionally, this can be caused by incorrect device timestamps. Restart "
+"OBS to reset buffering."
+msgstr "有些时候这可能是由于设备时间戳不正确引起的。重启 OBS 以重置缓冲。"
+
+#: checks/audio.py:91
+msgid "High Audio Buffering"
+msgstr "高音频缓冲"
+
+#: checks/audio.py:93
+msgid ""
+"Audio buffering reached values above 500ms. This is an indicator of very "
+"high system load and may affect stream latency. Keep an eye on CPU usage "
+"especially, and close background programs if needed. Restart OBS to reset"
+" buffering."
+msgstr ""
+"音频缓冲达到了 500 毫秒以上。这可能表明系统负载非常高，并可能影响直播延迟。请特别注意 CPU 使用率，并在需要时关闭后台程序。重启 OBS "
+"以重置缓冲。"
+
+#: checks/core.py:15
+msgid "OBS Classic"
+msgstr "OBS 经典版"
+
+#: checks/core.py:17
+msgid ""
+"You are still using OBS Classic. This version is no longer supported. "
+"While we cannot and will not do anything to prevent you from using it, we"
+" cannot help with any issues that may come up."
+msgstr "您仍在使用 OBS 经典版。此版本不再受支持。虽然我们不能也不会阻止您使用它，但是我们也无法帮助解决可能出现的任何问题。"
+
+#: checks/core.py:20
+msgid "It is recommended that you update to OBS Studio."
+msgstr "建议您升级到 OBS 工作室版。"
+
+#: checks/core.py:23
+#, python-brace-format
+msgid ""
+"Further information on why you should update (and how): {}OBS Classic to "
+"OBS Studio{}."
+msgstr "更多关于为什么您应该更新（以及如何更新）的信息：{}从 OBS 经典版更新到 OBS 工作室版{}。"
+
+#: checks/core.py:30
+msgid "OBS Studio"
+msgstr "OBS 工作室版"
+
+#: checks/core.py:30 checks/core.py:43
+msgid "Nothing to say"
+msgstr "没有什么可说的"
+
+#: checks/core.py:37
+msgid "Crash Log"
+msgstr "崩溃日志"
+
+#: checks/core.py:39
+msgid ""
+"You have uploaded a crash log. The Log Analyzer does not yet process "
+"crash logs."
+msgstr "您已上传崩溃日志。日志分析器尚无法处理崩溃日志。"
+
+#: checks/core.py:43
+msgid "OBS Studio Log"
+msgstr "OBS 工作室版日志"
+
+#: checks/core.py:50
+msgid "Two Instances"
+msgstr "两个实例"
+
+#: checks/core.py:52
+msgid ""
+"Two instances of OBS are running. If you are not intentionally running "
+"two instances, they will likely interfere with each other and consume "
+"excessive resources. Stop one of them. Check Task Manager for stray OBS "
+"processes if you can't find the other one."
+msgstr ""
+"正在运行两个 OBS "
+"实例。如果您不是故意运行两个实例，它们可能会相互干扰并消耗过多资源。请停止其中一个。如果找不到另一个实例，请检查任务管理器以查找多余的 OBS "
+"进程。"
+
+#: checks/core.py:61
+msgid "Auto-Config Wizard"
+msgstr "自动配置向导"
+
+#: checks/core.py:63
+msgid ""
+"The log contains an Auto-Config Wizard run. Results of this analysis are "
+"therefore inaccurate. Please post a link to a clean log file."
+msgstr "日志中包含一次自动配置向导的运行。因此，此分析的结果可能不准确。请提供一个干净的日志文件的链接。"
+
+#: checks/core.py:75 checks/core.py:83
+msgid "Insufficient Hardware"
+msgstr "硬件不足"
+
+#: checks/core.py:77
+msgid ""
+"Your system is below minimum specs for OBS to run and may be too "
+"underpowered to livestream. There are no recommended settings we can "
+"suggest, but try the Auto-Config Wizard in the Tools menu. You may need "
+"to upgrade or replace your computer for a better experience."
+msgstr ""
+"您的系统配置低于 OBS "
+"运行的最低配置，可能性能不足，无法进行直播。我们没有推荐的设置，但是可以尝试在工具菜单中使用自动配置向导。您可能需要升级或更换计算机以获得更好的体验。"
+
+#: checks/core.py:85
+msgid ""
+"Your system is below minimum specs for OBS to run and is too underpowered"
+" to livestream using software encoding. Livestreams and recordings may "
+"run more smoothly if you are using a hardware encoder like QuickSync, "
+"NVENC or AMF (via Settings -> Output)."
+msgstr ""
+"您的系统配置低于 OBS 运行所需的最低配置，性能不足，无法使用软件编码进行直播。如果您使用 QuickSync、NVENC 或 AMF "
+"等硬件编码器（通过“设置”->“输出”），直播和录制可能会更流畅。"
+
+#: checks/core.py:126
+msgid "Broken Auto-Update"
+msgstr "自动更新失败"
+
+#: checks/core.py:128
+msgid ""
+"You are not running the latest version of OBS Studio. Automatic updates "
+"in version 21.1.0 are broken due to a bug."
+msgstr "您未运行最新版本的 OBS 工作室版。版本 21.1.0 中的自动更新由于错误而损坏了。"
+
+#: checks/core.py:132
+#, python-brace-format
+msgid ""
+"Please update by downloading the latest installer from the {}downloads "
+"page{} and running it."
+msgstr "请通过从{}下载页面{}下载最新安装程序并运行它来进行更新。"
+
+#: checks/core.py:141
+#, python-brace-format
+msgid "Unofficial OBS Build ({})"
+msgstr "非官方 OBS 版本（{}）"
+
+#: checks/core.py:143
+#, python-brace-format
+msgid ""
+"Your OBS version identifies itself as '{}', which is not an official "
+"build."
+msgstr "您的 OBS 版本标识为 '{}'，这不是官方版本。"
+
+#: checks/core.py:147
+msgid ""
+"If you are on Linux, ensure you're using the PPA. If you cannot switch to"
+" the PPA, contact the maintainer of the package for any support issues."
+msgstr "如果您使用的是 Linux，请确保您使用的是 PPA。如果您无法切换到 PPA，请联系软件包的维护人员以解决任何支持问题。"
+
+#: checks/core.py:153
+#, python-brace-format
+msgid "Third party OBS Version ({})"
+msgstr "第三方 OBS 版本（{}）"
+
+#: checks/core.py:155
+#, python-brace-format
+msgid ""
+"Your OBS version identifies itself as '{}', which is made by a third "
+"party. Contact them for any support issues."
+msgstr "您的 OBS 版本标识为 '{}'，这是由第三方制作的。请联系他们以解决任何支持问题。"
+
+#: checks/core.py:161
+#, python-brace-format
+msgid "Custom OBS Build ({})"
+msgstr "自定义 OBS 版本（{}）"
+
+#: checks/core.py:163
+#, python-brace-format
+msgid ""
+"Your OBS version identifies itself as '{}', which is not a released OBS "
+"version."
+msgstr "您的 OBS 版本标识为 '{}'，这不是一个已发布的 OBS 版本。"
+
+#: checks/core.py:169
+#, python-brace-format
+msgid "Unparseable OBS Version ({})"
+msgstr "无法解析的 OBS 版本（{}）"
+
+#: checks/core.py:171
+#, python-brace-format
+msgid ""
+"Your OBS version identifies itself as '{}', which cannot be parsed as a "
+"valid OBS version number."
+msgstr "您的 OBS 版本标识为 '{}'，无法解析为有效的 OBS 版本号。"
+
+#: checks/core.py:182
+#, python-brace-format
+msgid "Beta OBS Version ({})"
+msgstr "测试版 OBS 版本（{}）"
+
+#: checks/core.py:184
+msgid ""
+"You are running a beta version of OBS. There is nothing wrong with this, "
+"but you may experience problems that you may not experience with fully "
+"released OBS versions. You are encouraged to upgrade to a released "
+"version of OBS as soon as one is available."
+msgstr "您正在运行测试版 OBS。这本身并没有什么问题，但是您可能会遇到一些正式版 OBS 中不会遇到的问题。建议您尽快升级到正式版 OBS。"
+
+#: checks/core.py:191
+#, python-brace-format
+msgid "Release Candidate OBS Version ({})"
+msgstr "候选发布版 OBS 版本（{}）"
+
+#: checks/core.py:195
+msgid ""
+"You are running a release candidate version of OBS. There is nothing "
+"wrong with this, but you may experience problems that you may not "
+"experience with fully released OBS versions. You are encouraged to "
+"upgrade to a released version of OBS as soon as one is available."
+msgstr "您正在运行候选发布版 OBS。这本身并没有什么问题，但是您可能会遇到一些正式版 OBS 中不会遇到的问题。建议您尽快升级到正式版 OBS。"
+
+#: checks/core.py:202
+#, python-brace-format
+msgid "Old Version ({})"
+msgstr "旧版本（{}）"
+
+#: checks/core.py:204
+#, python-brace-format
+msgid ""
+"You are running an old version of OBS Studio ({}) Please update to "
+"version {} by going to Help -> Check for updates in OBS or by downloading"
+" the latest installer from the {}downloads page{} and running it."
+msgstr "您正在运行旧版本的 OBS 工作室版（{}）。请更新至版本 {}，方法是前往“帮助”->“检查更新”，或从{}下载页面{}下载最新安装程序并运行。"
+
+#: checks/core.py:229
+msgid "Portable Mode"
+msgstr "便携模式"
+
+#: checks/core.py:231
+msgid ""
+"You are running OBS in Portable Mode. This means that OBS will store its "
+"settings with the executable. This is useful if you want to run OBS from "
+"a flash drive or other removable media."
+msgstr "您正在便携模式下运行 OBS。这意味着 OBS 会将其设置与可执行文件一起保存。如果您想从闪存驱动器或其他可移动介质运行 OBS，此功能非常有用。"
+
+#: checks/core.py:250
+#, python-brace-format
+msgid "Safe Mode Enabled ({})"
+msgstr "安全模式已启用（{}）"
+
+#: checks/core.py:252
+msgid ""
+"You are running OBS in Safe Mode. Safe Mode disables third-party plugins "
+"and prevents scripts from running. The following modules were not loaded:"
+msgstr "您正在安全模式下运行 OBS。安全模式会禁用第三方插件并阻止脚本运行。以下模块未加载："
+
+#: checks/core.py:259
+msgid "Safe Mode Enabled"
+msgstr "安全模式已启用"
+
+#: checks/core.py:261
+msgid ""
+"You are running OBS in Safe Mode. Safe Mode disables third-party plugins "
+"and prevents scripts from running."
+msgstr "您正在安全模式下运行 OBS。安全模式会禁用第三方插件并阻止脚本运行。"
+
+#: checks/encoding.py:18
+msgid "No Output Session"
+msgstr "没有输出会话"
+
+#: checks/encoding.py:20
+msgid ""
+"Your log contains no recording or streaming session. Results of this log "
+"analysis are limited. Please post a link to a clean log file."
+msgstr "您的日志中没有录制或直播会话。此日志分析的结果有限。请提供一个干净的日志文件的链接。"
+
+#: checks/encoding.py:34
+msgid "MP4/MOV Recording"
+msgstr "MP4/MOV 录制"
+
+#: checks/encoding.py:36
+msgid ""
+"Record to FLV or MKV. If you record to MP4 or MOV and the recording is "
+"interrupted, the file will be corrupted and unrecoverable."
+msgstr "录制为 FLV 或 MKV 格式。如果录制为 MP4 或 MOV 格式时发生中断，文件将损坏且无法恢复。"
+
+#: checks/encoding.py:40
+msgid ""
+"If you require MP4 files for some other purpose like editing, remux them "
+"afterwards by selecting File -> Remux Recordings in the main OBS Studio "
+"window."
+msgstr "如果您出于其他目的需要 MP4 文件，例如编辑，请在主 OBS 工作室版窗口中选择“文件”->“录像转封装”来进行重新封装。"
+
+#: checks/encoding.py:56
+msgid "Non-Default x264 Preset"
+msgstr "非默认 x264 预设"
+
+#: checks/encoding.py:58
+msgid ""
+"A slower x264 preset than 'veryfast' is in use. It is recommended to "
+"leave this value on veryfast, as there are significant diminishing "
+"returns to setting it lower. It can also result in very poor gaming "
+"performance on the system if you're not using a 2 PC setup."
+msgstr ""
+"正在使用比“veryfast”更慢的 x264 预设。建议将此值保留为 veryfast，因为将其设置得更低会显著降低回报。如果您没有使用双 PC"
+" 设置，这也可能导致系统游戏性能非常差。"
+
+#: checks/encoding.py:68
+msgid "Custom FFMPEG Output"
+msgstr "自定义 FFMPEG 输出"
+
+#: checks/encoding.py:70
+msgid ""
+"Custom FFMPEG output is in use. Only absolute professionals should use "
+"this. If you got your settings from a YouTube video advertising "
+"\"Absolute best OBS settings\" then we recommend using one of the presets"
+" in Simple output mode instead."
+msgstr ""
+"正在使用自定义 FFMPEG 输出。只有绝对专业的人士才应使用此选项。如果您的设置来自 YouTube/bilibili 视频中宣传的“绝对最佳的"
+" OBS 设置”，我们建议您使用简单输出模式中的预设之一。"
+
+#: checks/encoding.py:117
+msgid "Low Stream Bitrate"
+msgstr "低直播码率"
+
+#: checks/encoding.py:119
+msgid ""
+"Your stream encoder is set to a video bitrate that is too low. This will "
+"lower picture quality especially in high motion scenes like fast paced "
+"games. Use the Auto-Config Wizard to adjust your settings to the optimum "
+"for your situation. It can be accessed from the Tools menu in OBS, and "
+"then just follow the on-screen directions."
+msgstr ""
+"您的直播编码器设置的视频码率过低。这会降低画质，尤其是在快节奏游戏等高速移动场景中。请使用自动配置向导根据您的具体情况调整设置。您可以从 OBS "
+"的“工具”菜单访问该向导，然后按照屏幕上的说明操作即可。"
+
+#: checks/encoding.py:130
+msgid "NVENC Start Failure"
+msgstr "NVENC 启动失败"
+
+#: checks/encoding.py:132
+msgid ""
+"The NVENC Encoder failed to start due of a variety of possible reasons. "
+"Make sure that Windows Game Bar and Windows Game DVR are disabled and "
+"that your GPU drivers are up to date."
+msgstr ""
+"NVENC 编码器由于多种可能的原因启动失败。请确保已禁用 Windows 游戏栏和 Windows 游戏 DVR，并且您的 GPU "
+"驱动程序已更新至最新版本。"
+
+#: checks/encoding.py:136
+#, python-brace-format
+msgid ""
+"You can perform a clean driver installation for your GPU by following the"
+" instructions at {}Clean GPU driver installation{}."
+msgstr "您可以按照{}干净的 GPU 驱动程序安装{}中的说明为您的 GPU 执行干净的驱动程序安装。"
+
+#: checks/encoding.py:143
+msgid ""
+"If this doesn't solve the issue, then it's possible your graphics card "
+"doesn't support NVENC. You can change to a different Encoder in Settings "
+"-> Output."
+msgstr "如果此方法无法解决问题，则可能是您的显卡不支持 NVENC。您可以在“设置”->“输出”中更改为其他编码器。"
+
+#: checks/encoding.py:152
+msgid "Encoder start error"
+msgstr "编码器启动错误"
+
+#: checks/encoding.py:154
+msgid ""
+"An encoder failed to start. This could result in a bitrate stuck at 0 or "
+"OBS stuck on \"Stopping Recording\". Depending on your encoder, try "
+"updating your drivers. If you're using QSV, make sure your iGPU is "
+"enabled. If that still doesn't help, try switching to a different encoder"
+" in Settings -> Output."
+msgstr ""
+"编码器启动失败。这可能导致码率卡在 0 或 OBS 卡在“停止录制”状态。请根据您的编码器尝试更新驱动程序。如果您使用的是 QSV，请确保您的 "
+"iGPU 已启用。如果仍然无效，请尝试在“设置”->“输出”中切换到其他编码器。"
+
+#: checks/encoding.py:186 checks/encoding.py:222
+#, python-brace-format, python-format
+msgid "{}% Encoder Overload"
+msgstr "{}% 编码器过载"
+
+#: checks/encoding.py:188 checks/encoding.py:224
+#, python-brace-format
+msgid ""
+"Encoder overload may be related to your CPU or GPU being overloaded, "
+"depending on the encoder in question. If you are using a software encoder"
+" (x264) please see the {}CPU Overload Guide{}. If you are using a "
+"hardware encoder (AMF, QSV/Quicksync, NVENC) please see the {}GPU "
+"Overload Guide{}."
+msgstr ""
+"编码器过载可能与您的 CPU 或 GPU 过载有关，具体取决于所涉及的编码器。如果您使用的是软件编码器 (x264)，请参阅{}CPU "
+"过载指南{}。如果您使用的是硬件编码器（AMF、QSV/Quicksync、NVENC），请参阅{}GPU 过载指南{}。"
+
+#: checks/encoding.py:200
+#, python-brace-format
+msgid "{}% CPU Encoder Overload"
+msgstr "{}% CPU 编码器过载"
+
+#: checks/encoding.py:202
+#, python-brace-format
+msgid ""
+"The encoder is skipping frames because of CPU overload. Read about "
+"{}General Performance and Encoding Issues{}."
+msgstr "由于 CPU 过载，编码器正在跳帧。请参阅{}一般性能和编码问题{}。"
+
+#: checks/encoding.py:211
+#, python-brace-format, python-format
+msgid "{}% GPU Encoder Overload"
+msgstr "{}% GPU 编码器过载"
+
+#: checks/encoding.py:213
+#, python-brace-format
+msgid ""
+"The encoder is skipping frames because of GPU overload. Read about "
+"troubleshooting tips in our {}GPU Overload Guide{}."
+msgstr "由于 GPU 过载，编码器出现跳帧现象。请参阅我们的{}GPU 过载指南{}中的故障排除技巧。"
+
+#: checks/encoding.py:248
+msgid "Outdated Encoder Set"
+msgstr "过时的编码器集"
+
+#: checks/encoding.py:250
+msgid ""
+"In OBS v27, the Apple VT encoder was changed to better support the Apple "
+"M1 platform, which resulted in the existing encoder becoming "
+"unrecognised. Manually navigate to Settings -> Output and set the "
+"'Encoder' to fix this."
+msgstr ""
+"在 OBS v27 中，Apple VT 编码器已进行更改，以更好地支持 Apple M1 "
+"平台，这导致现有编码器无法识别。请手动前往“设置”->“输出”，并设置“编码器”以解决此问题。"
+
+#: checks/encoding.py:255
+msgid "Unrecognised Encoder"
+msgstr "无法识别的编码器"
+
+#: checks/encoding.py:257
+msgid ""
+"One of the configured encoders is not recognised. This can result in "
+"failure to go live or to record. To fix this, go to Settings -> Output "
+"and change the 'Encoder' option."
+msgstr "某个已配置的编码器无法识别。这可能会导致直播或录制失败。要解决此问题，请前往“设置”->“输出”，然后更改“编码器”选项。"
+
+#: checks/graphics.py:11
+msgid "Initialize Failed"
+msgstr "初始化失败"
+
+#: checks/graphics.py:13
+msgid ""
+"Failed to initialize video. Your GPU may not be supported, or your "
+"graphics drivers may need to be updated."
+msgstr "无法初始化视频。您的 GPU 可能不受支持，或者您的显卡驱动程序可能需要更新。"
+
+#: checks/graphics.py:47
+#, python-brace-format
+msgid "{}% Rendering Lag"
+msgstr "{}% 渲染延迟"
+
+#: checks/graphics.py:49
+msgid ""
+"Your GPU is maxed out and OBS can't render scenes fast enough. Running a "
+"game without vertical sync or a frame rate limiter will frequently cause "
+"performance issues with OBS because your GPU will be maxed out. OBS "
+"requires a little GPU to render your scene."
+msgstr ""
+"您的 GPU 已满负荷运行，导致 OBS 无法快速渲染场景。运行没有垂直同步或帧率限制器的游戏经常会导致 OBS 性能问题，因为您的 GPU "
+"已满负荷运行。OBS 需要少量 GPU 来渲染场景。"
+
+#: checks/graphics.py:53
+#, python-format
+msgid ""
+"Enable Vsync or set a reasonable frame rate limit that your GPU can "
+"handle without hitting 100% usage."
+msgstr "启用 Vsync 或设置合理的帧速率限制，使您的 GPU 能够处理而不会达到 100% 的使用率。"
+
+#: checks/graphics.py:57
+msgid ""
+"If that's not enough you may also need to turn down some of the video "
+"quality options in the game. If you are experiencing issues in general "
+"while using OBS, your GPU may be overloaded for the settings you are "
+"trying to use."
+msgstr "如果这还不够，您可能还需要调低游戏中的一些视频质量选项。如果您在使用 OBS 时遇到任何问题，可能是您的 GPU 因您尝试使用的设置而超载了。"
+
+#: checks/graphics.py:61
+#, python-brace-format
+msgid ""
+"Please check our guide for ideas why this may be happening, and steps you"
+" can take to correct it: {}GPU Overload Issues{}."
+msgstr "请查看我们的指南，了解发生这种情况的原因以及可以采取的纠正步骤：{}GPU 过载问题{}。"
+
+#: checks/graphics.py:73
+msgid "AMD Drivers"
+msgstr "AMD 驱动"
+
+#: checks/graphics.py:75
+#, python-brace-format
+msgid ""
+"The AMF Runtime is very old and unsupported. The AMF Encoder will not "
+"work properly or not show up at all. Consider updating your drivers by "
+"downloading the newest installer from {}AMD's website{}."
+msgstr "AMF 运行时非常老旧且不受支持。AMF 编码器将无法正常工作或根本不显示。请考虑从{}AMD 网站{}下载最新的安装程序来更新您的驱动程序。"
+
+#: checks/graphics.py:84 checks/graphics.py:97
+msgid "Old NVIDIA Drivers"
+msgstr "老旧 NVIDIA 驱动"
+
+#: checks/graphics.py:86
+#, python-brace-format
+msgid ""
+"The installed NVIDIA driver does not support NVENC features needed for "
+"optimized encoders. Consider updating your drivers by downloading the "
+"newest installer from {}NVIDIA's website{}."
+msgstr "已安装的 NVIDIA 驱动程序不支持优化编码器所需的 NVENC 功能。请考虑从{}NVIDIA 网站{}下载最新的安装程序来更新您的驱动程序。"
+
+#: checks/graphics.py:98
+msgid "Legacy NVIDIA 390 drivers do not support window capture on EGL."
+msgstr "旧版 NVIDIA 390 驱动程序在 EGL 上不支持窗口采集。"
+
+#: checks/graphics.py:115
+msgid "Wrong Color Range"
+msgstr "错误的颜色范围"
+
+#: checks/graphics.py:117
+msgid ""
+"Having the Color Range set to \"Full\" will cause playback issues in "
+"certain browsers and on various video platforms. Shadows, highlights and "
+"color will look off. In OBS, go to \"Settings -> Advanced\" and set "
+"\"Color Range\" back to \"Limited\"."
+msgstr ""
+"将色彩范围设置为“扩展”会导致某些浏览器和各种视频平台出现播放问题。阴影、高光和颜色会看起来不正常。在 OBS "
+"中，前往“设置”->“高级”，将“色彩范围”重新设置为“常规”。"
+
+#: checks/graphics.py:125
+msgid "Wrong Color Format"
+msgstr "错误的颜色格式"
+
+#: checks/graphics.py:127
+msgid ""
+"Color Formats other than NV12 and P010 are primarily intended for "
+"recording, and are not recommended when streaming. Streaming may incur "
+"increased CPU usage due to color format conversion. You can change your "
+"Color Format in Settings -> Advanced."
+msgstr ""
+"NV12 和 P010 以外的颜色格式主要用于录制，不建议用于直播。直播可能会因颜色格式转换而增加 CPU "
+"占用。您可以在“设置”->“高级”中更改颜色格式。"
+
+#: checks/graphics.py:146
+msgid "Non-Standard Aspect Ratio"
+msgstr "非标准纵横比"
+
+#: checks/graphics.py:148
+msgid ""
+"Almost all modern streaming services and video platforms expect video in "
+"16:9 aspect ratio. OBS is currently configured to record in an aspect "
+"ratio that differs from that. You (or your viewers) will see black bars "
+"during playback. Go to Settings -> Video and change your Canvas "
+"Resolution to one that is 16:9."
+msgstr ""
+"几乎所有现代流媒体服务和视频平台都要求视频的宽高比为 16:9。OBS "
+"目前配置的录制宽高比与此不同。您（或您的观看者）在播放过程中会看到黑条。请前往“设置”->“视频”，将“画布分辨率”更改为 16:9。"
+
+#: checks/graphics.py:156
+msgid "Non-Standard Framerate"
+msgstr "非标准帧率"
+
+#: checks/graphics.py:158
+msgid ""
+"Framerates other than 30fps or 60fps may lead to playback issues like "
+"stuttering or screen tearing. Stick to either of these for better "
+"compatibility with video players. You can change your OBS frame rate in "
+"Settings -> Video."
+msgstr ""
+"30fps 或 60fps 以外的帧率可能会导致卡顿或画面撕裂等播放问题。为了更好地兼容视频播放器，请选择 30fps 或 60fps "
+"其中之一。您可以在“设置”->“视频”中更改 OBS 帧率。"
+
+#: checks/graphics.py:166
+msgid "Excessively High Framerate"
+msgstr "过高的帧率"
+
+#: checks/graphics.py:168
+msgid ""
+"Recording at a tremendously high framerate will not give you higher "
+"quality recordings. Usually quite the opposite. Most computers cannot "
+"handle encoding at high framerates. You can change your OBS frame rate in"
+" Settings -> Video."
+msgstr ""
+"以极高的帧率录制并不会获得更高质量的录制内容。通常情况下，效果恰恰相反。大多数计算机无法处理高帧率的编码。您可以在“设置”->“视频”中更改 "
+"OBS 帧率。"
+
+#: checks/linux.py:38
+msgid "Flatpak"
+msgstr "Flatpak"
+
+#: checks/linux.py:40
+#, python-brace-format
+msgid ""
+"You are using the Flatpak. Plugins are available as Flatpak extensions, "
+"which you can find in your Distribution's Software Center or via "
+"{}flatpak search com.obsproject.Studio{}. Installation of external "
+"plugins is not supported."
+msgstr ""
+"您正在使用 Flatpak。插件以 Flatpak 扩展的形式提供，您可以在发行版的软件中心或通过 {}flatpak 搜索 "
+"com.obsproject.Studio{} 找到。不支持安装外部插件。"
+
+#: checks/linux.py:54
+msgid "Snap Package"
+msgstr "Snap 包"
+
+#: checks/linux.py:56
+#, python-brace-format
+msgid ""
+"You are using the Snap Package. This is a community-supported modified "
+"build of OBS Studio; please file issues on the {}Snapcrafters GitHub{}."
+msgstr "您正在使用 Snap 包。这是社区支持的 OBS 工作室版修改版本；请在 {}Snapcrafters GitHub{} 上提交问题。"
+
+#: checks/linux.py:62
+#, python-brace-format
+msgid ""
+"OBS may be unable to assist with issues arising out of the usage of this "
+"package. We recommend following our {}Install Instructions{} instead."
+msgstr "OBS 可能无法协助解决使用此软件包时出现的问题。我们建议您按照我们的{}安装说明{}操作。"
+
+#: checks/linux.py:85
+msgid "Ubuntu 20.04 under Wayland"
+msgstr "Wayland 下的 Ubuntu 20.04"
+
+#: checks/linux.py:87
+msgid ""
+"Ubuntu 20.04 does not provide the needed dependencies for OBS to capture "
+"under Wayland."
+msgstr "Ubuntu 20.04 没有提供 OBS 在 Wayland 下采集所需的依赖项。"
+
+#: checks/linux.py:90
+msgid "Capture will only function under X11/Xorg."
+msgstr "采集仅在 X11/Xorg 下有效。"
+
+#: checks/linux.py:99
+msgid "Running under XWayland"
+msgstr "在 XWayland 下运行"
+
+#: checks/linux.py:101
+msgid ""
+"OBS is running under XWayland, which prevents OBS from being able to "
+"capture."
+msgstr "OBS 正在 XWayland 下运行，这使得 OBS 无法进行采集。"
+
+#: checks/linux.py:105
+#, python-brace-format
+msgid ""
+"To fix that, you will need to run OBS with the following command in a "
+"terminal:{}obs -platform wayland{}"
+msgstr "要修复此问题，您需要在终端中使用以下命令运行 OBS：{}obs -platform wayland{}"
+
+#: checks/linux.py:113
+msgid "No PipeWire capture on Wayland"
+msgstr "在 Wayland 上没有 PipeWire 采集"
+
+#: checks/linux.py:115
+msgid ""
+"In order to capture displays or windows under Wayland, OBS requires the "
+"appropriate PipeWire capture portal for your Desktop Environment."
+msgstr "为了采集 Wayland 下的显示或窗口，OBS 需要适合您的桌面环境的 PipeWire 采集门户。"
+
+#: checks/linux.py:119
+msgid ""
+"An overview of available capture portals can be found on the Arch Linux "
+"Wiki:"
+msgstr "有关可用采集门户的概述可以在 Arch Linux Wiki 上找到："
+
+#: checks/linux.py:122
+#, python-brace-format
+msgid "{}XDG Desktop Portal{}"
+msgstr "{}XDG 桌面门户{}"
+
+#: checks/linux.py:128
+msgid ""
+"Note that the availability of Window and/or Display capture depends on "
+"your Desktop Environment's implementation of these portals."
+msgstr "请注意，窗口和/或显示采集的可用性取决于您的桌面环境对这些门户的实现。"
+
+#: checks/linux.py:158
+msgid "PipeWire capture on X11"
+msgstr "X11 上的 PipeWire 采集"
+
+#: checks/linux.py:160
+msgid ""
+"Most Desktop Environments do not implement the PipeWire capture portals "
+"on X11. This can result in being unable to pick a window or display, or "
+"the selected source will stay empty."
+msgstr "大多数桌面环境未在 X11 上实现 PipeWire 采集门户。这可能导致无法选择窗口或显示，或者所选源保持空白。"
+
+#: checks/linux.py:164
+msgid ""
+"We generally recommend using \"Window Capture (Xcomposite)\" on X11, as "
+"\"Display Capture (XSHM)\" can introduce bottlenecks depending on your "
+"setup."
+msgstr "我们通常建议在 X11 上使用“窗口采集（Xcomposite）”，因为取决于您的设置“显示采集（XSHM）”可能会引入瓶颈。"
+
+#: checks/linux.py:212
+#, python-brace-format
+msgid "Missing Modules ({})"
+msgstr "缺失模块（{}）"
+
+#: checks/linux.py:213
+msgid "You are missing the following default modules:"
+msgstr "您缺少以下默认模块："
+
+#: checks/linux.py:231
+msgid "Virtual Camera not available"
+msgstr "虚拟摄像机不可用"
+
+#: checks/linux.py:233
+#, python-brace-format
+msgid ""
+"Using the Virtual Camera requires the {}v4l2loopback{} kernel module to "
+"be installed."
+msgstr "使用虚拟摄像机需要安装 {}v4l2loopback{} 内核模块。"
+
+#: checks/linux.py:237
+#, python-brace-format
+msgid ""
+"If required, please refer to our {}Install Instructions{} on how to "
+"install this on your distribution."
+msgstr "如果需要，请参阅我们的{}安装说明{}，了解如何在您的发行版上安装它。"
+
+#: checks/macos.py:55
+#, python-brace-format
+msgid ""
+"You are running {} {}, which is multiple versions out of date and no "
+"longer supported by Apple or recent OBS versions. We recommend updating "
+"to the latest macOS release to ensure continued security, functionality "
+"and compatibility."
+msgstr ""
+"您正在运行 {} {}，该版本已过期多个版本，并且 Apple 和最新 OBS 版本均不再支持。我们建议您更新到最新的 macOS "
+"版本，以确保持续的安全性、功能性和兼容性。"
+
+#: checks/macos.py:64
+#, python-brace-format
+msgid ""
+"You are running {} {}, which is currently supported by Apple and the most"
+" recent version of OBS."
+msgstr "您正在运行 {} {}，它目前受到 Apple 和最新版本的 OBS 的支持。"
+
+#: checks/macos.py:70
+#, python-brace-format
+msgid ""
+"You are running {} {}, which is not officially supported by Apple but is "
+"compatible with the most recent version of OBS. Updating to a more recent"
+" version of macOS is recommended to ensure that you are able to install "
+"future versions of OBS."
+msgstr ""
+"您正在运行 {} {}，它不受 Apple 官方支持，但是与最新版本的 OBS 兼容。建议您更新到较新版本的 macOS，以确保能够安装未来版本的"
+" OBS。"
+
+#: checks/macos.py:80
+msgid "Intel OBS on Apple Silicon Mac"
+msgstr "在 Apple Silicon Mac 上运行 Intel OBS"
+
+#: checks/macos.py:82
+msgid ""
+"You are running the Intel version of OBS on an Apple Silicon Mac. You may"
+" get improved performance using the Apple Silicon version of OBS."
+msgstr ""
+"您正在 Apple Silicon Mac 上运行 Intel 版本的 OBS。使用 Apple Silicon 版本的 OBS "
+"可能会获得更好的性能。"
+
+#: checks/macos.py:98
+#, python-brace-format
+msgid ""
+"{}Microphone{}: OBS requires this permission if you want to capture your "
+"microphone."
+msgstr "{}麦克风{}：如果您想捕获麦克风，OBS 需要此权限。"
+
+#: checks/macos.py:101
+#, python-brace-format
+msgid ""
+"{}Camera{}: This permission is needed in order to capture content from a "
+"webcam or capture card."
+msgstr "{}摄像头{}：需要此权限才能从网络摄像头或采集卡捕获内容。"
+
+#: checks/macos.py:104
+#, python-brace-format
+msgid ""
+"{}Accessibility{}: For keyboard shortcuts (hotkeys) to work while other "
+"apps are focused this permission is needed."
+msgstr "{}辅助功能{}：当聚焦于其他应用时，键盘快捷键（热键）要正常工作，需要此权限。"
+
+#: checks/macos.py:107
+#, python-brace-format
+msgid ""
+"{}Screen Recording{}: OBS requires this permission to be able to capture "
+"your screen."
+msgstr "{}屏幕录制{}：OBS 需要此权限才能采集您的屏幕。"
+
+#: checks/macos.py:118
+#, python-brace-format
+msgid "Permissions Not Granted ({})"
+msgstr "未授予权限（{}）"
+
+#: checks/macos.py:120
+#, python-brace-format
+msgid ""
+"The following permissions have not been granted:{}If you would like to "
+"grant permissions for the above, follow the instructions in the {}macOS "
+"Permissions Guide{}."
+msgstr "以下权限尚未被授予：{}如果您想要授予上述权限，请按照 {}macOS 权限指南{}中的说明进行操作。"
+
+#: checks/network.py:30
+#, python-brace-format
+msgid "{}% Dropped Frames"
+msgstr "{}% 丢帧"
+
+#: checks/network.py:32
+#, python-brace-format
+msgid ""
+"Your log contains streaming sessions with dropped frames. This can only "
+"be caused by a failure in your internet connection or your networking "
+"hardware. It is not caused by OBS. Follow the troubleshooting steps at: "
+"{}Dropped Frames and General Connection Issues{}."
+msgstr "您的日志包含丢帧的直播会话。这只能由您的互联网连接或网络硬件故障引起，而非 OBS。请按照以下位置的故障排除步骤操作：{}丢帧和常规连接问题{}。"
+
+#: checks/network.py:44
+msgid "Killer NIC"
+msgstr "Killer NIC"
+
+#: checks/network.py:46
+#, python-brace-format
+msgid ""
+"Killer's Software Suite is known for its poor performance and issues when"
+" trying to stream. Please download the package from {}the vendor's page{}"
+" , completely uninstall all Killer NIC items and run the installer, "
+"choosing to only install the Hardware Drivers."
+msgstr ""
+"Killer 软件套件以性能不佳和直播时的问题而闻名。请从{}供应商页面{}下载软件包，完全卸载所有 Killer NIC "
+"项目，然后运行安装程序，并选择仅安装硬件驱动程序。"
+
+#: checks/network.py:58
+msgid "Lenovo Vantage"
+msgstr "Lenovo Vantage"
+
+#: checks/network.py:60
+msgid ""
+"Lenovo Vantage / Legion Edge is installed and is known to cause "
+"connection issues while streaming. Open Lenovo Vantage and set the "
+"\"Network Boost\" feature to disabled when streaming with OBS."
+msgstr ""
+"已安装 Lenovo Vantage / Legion Edge，已知会导致直播时出现连接问题。使用 OBS 直播时，请打开 Lenovo "
+"Vantage 并将“网络增强”功能设置为禁用。"
+
+#: checks/network.py:69
+msgid "Wi-Fi Streaming"
+msgstr "WI-FI 直播"
+
+#: checks/network.py:71
+msgid ""
+"In many cases, wireless connections can cause issues because of their "
+"unstable nature. Streaming really requires a stable connection. Often "
+"wireless connections are fine, but if you have problems, the first "
+"troubleshooting step would be to switch to wired. We highly recommend "
+"streaming on wired connections."
+msgstr "很多情况下，无线连接由于其不稳定的特性，可能会引发问题。直播确实需要稳定的连接。通常情况下，无线连接可以正常工作，但是如果出现问题，故障排除的第一步就是切换到有线连接。我们强烈建议使用有线连接进行直播。"
+
+#: checks/network.py:80
+msgid "Binding to IP"
+msgstr "绑定到 IP"
+
+#: checks/network.py:82
+msgid ""
+"Binding to a manually chosen IP address is rarely needed. Go to Settings "
+"-> Advanced -> Network and set \"Bind to IP\" back to \"Default\"."
+msgstr "很少需要手动绑定 IP 地址。前往“设置”->“高级”->“网络”，将“绑定到 IP”恢复为“默认”。"
+
+#: checks/network.py:108
+msgid "Slow Network Connection"
+msgstr "网络连接缓慢"
+
+#: checks/network.py:110
+msgid ""
+"Your gigabit-capable network card is only connecting at 100mbps. This may"
+" indicate a bad network cable or outdated router / switch which could be "
+"impacting network performance."
+msgstr "您的千兆网卡连接速度仅为 100mbps。这可能表明网线质量不佳或路由器/交换机型号过时，从而影响了网络性能。"
+
+#: checks/network.py:121
+msgid "Dynamic Bitrate"
+msgstr "动态码率"
+
+#: checks/network.py:123
+msgid ""
+"Dynamic Bitrate is enabled. Instead of dropping frames when network "
+"issues are detected, OBS will automatically reduce the stream quality to "
+"compensate. The bitrate will adjust back to normal once the connection "
+"becomes stable. In some (very specific) situations, Dynamic Bitrate can "
+"get stuck at a low bitrate. If this happens frequently, it is recommended"
+" to turn off Dynamic Bitrate in Settings -> Advanced -> Network."
+msgstr ""
+"动态码率已启用。当检测到网络问题时，OBS "
+"不会丢帧，而是会自动降低直播质量进行补偿。一旦连接稳定，码率将恢复正常。在某些（非常特殊）情况下，动态码率可能会卡在低码率。如果这种情况经常发生，建议在“设置”->“高级”->“网络”中关闭动态码率。"
+
+#: checks/network.py:134
+msgid "Network Optimizations"
+msgstr "网络优化"
+
+#: checks/network.py:136
+msgid ""
+"Network Optimizations are enabled. This option is disabled by default. It"
+" is only suggested to enable Network Optimizations if you are having "
+"issues streaming. The setting can be toggled in Settings -> Advanced -> "
+"Network."
+msgstr "网络优化已启用。此选项默认禁用。仅当您在直播时遇到问题时才建议启用网络优化。您可以在“设置”->“高级”->“网络”中切换此设置。"
+
+#: checks/network.py:147
+msgid "TCP Pacing"
+msgstr "TCP Pacing"
+
+#: checks/network.py:149
+msgid ""
+"TCP Pacing (Low Latency mode) is enabled. This option is disabled by "
+"default. It is only suggested to enable TCP Pacing if you are having "
+"issues streaming. The setting can be toggled in Settings -> Advanced -> "
+"Network."
+msgstr ""
+"TCP Pacing（低延迟模式）已启用。此选项默认禁用。仅当您遇到直播问题时才建议启用 TCP "
+"Pacing。您可以在“设置”->“高级”->“网络”中切换此设置。"
+
+#: checks/network.py:160
+msgid "Stream Delay"
+msgstr "直播延迟"
+
+#: checks/network.py:162
+msgid ""
+"Stream Delay may currently be active. This means that your stream is "
+"being delayed by a certain number of seconds. If this is not what you "
+"intended, please disable it in Settings -> Advanced -> Stream Delay."
+msgstr "直播延迟功能目前可能处于启用状态。这意味着您的直播将延迟几秒钟。如果您不希望出现这种情况，请在“设置”->“高级”->“直播延迟”中禁用此功能。"
+
+#: checks/plugins.py:26
+msgid "Plugins affected:"
+msgstr "受影响的插件："
+
+#: checks/plugins.py:29
+#, python-brace-format
+msgid "Outdated Plugins ({})"
+msgstr "过时的插件（{}）"
+
+#: checks/plugins.py:31
+#, python-brace-format
+msgid ""
+"Some plugins need to be manually updated, as they do not work with this "
+"version of OBS. Check our {}Plugin Compatibility Guide{} for known "
+"updates & download links."
+msgstr "某些插件需要手动更新，因为它们不适用于此版本的 OBS。请查看我们的{}插件兼容性指南{}，了解已知更新和下载链接。"
+
+#: checks/plugins.py:73
+#, python-brace-format
+msgid "Third-Party Plugins ({})"
+msgstr "第三方插件（{}）"
+
+#: checks/plugins.py:74
+msgid "You have the following third-party plugins installed:"
+msgstr "您已安装以下第三方插件："
+
+#: checks/sources.py:12
+msgid "Memory Capture"
+msgstr "内存采集"
+
+#: checks/sources.py:14
+msgid ""
+"SLI/Crossfire Capture Mode (aka 'Shared memory capture') is very slow, "
+"and only to be used on SLI & Crossfire systems."
+msgstr "SLI/交火采集模式（又名“共享内存采集”）非常慢，只能在 SLI 和交火系统上使用。"
+
+#: checks/sources.py:18
+#, python-brace-format
+msgid ""
+"If you're using a laptop or a display with multiple graphics cards and "
+"your game is only running on one of them, consider switching OBS to run "
+"on the same GPU instead of enabling this setting. Guide available "
+"{}here{}."
+msgstr ""
+"如果您使用的笔记本电脑或显示器配备多个显卡，并且您的游戏仅在其中一个显卡上运行，请考虑将 OBS 切换为在同一 GPU "
+"上运行，而不是启用此设置。指南可从{}此处{}获取。"
+
+#: checks/sources.py:35
+msgid "Capture Interference"
+msgstr "采集干扰"
+
+#: checks/sources.py:37
+msgid ""
+"Display and Game Capture Sources interfere with each other. Never put "
+"them in the same scene."
+msgstr "显示和游戏采集源会互相干扰。切勿将它们放在同一场景中。"
+
+#: checks/sources.py:48
+msgid "Multiple Game Capture"
+msgstr "多个游戏采集"
+
+#: checks/sources.py:50
+msgid ""
+"Multiple Game Capture sources are usually not needed, and can sometimes "
+"interfere with each other. You can use the same Game Capture for all your"
+" games! If you change games often, try out the hotkey mode, which lets "
+"you press a key to select your active game. If you play games in "
+"fullscreen, use 'Capture any fullscreen application' mode."
+msgstr "通常不需要多个游戏采集源，而且它们有时会互相干扰。您可以为所有游戏使用同一个游戏采集！如果您经常切换游戏，可以尝试热键模式，该模式允许您按下一个键来选择当前正在运行的游戏。如果您全屏玩游戏，请使用“采集全屏应用程序”模式。"
+
+#: checks/sources.py:63 checks/sources.py:71
+msgid "Browser Not Accelerated"
+msgstr "浏览器未加速"
+
+#: checks/sources.py:65
+msgid ""
+"Browser hardware acceleration is currently disabled. Enabling "
+"acceleration is highly recommended due to the improvements to performance"
+" and significantly lower CPU usage for browser sources. This can be "
+"enabled in Settings -> Advanced."
+msgstr "浏览器源硬件加速目前已被禁用。强烈建议启用加速，因为它可以提升性能并显著降低浏览器源的 CPU 占用率。您可以在“设置”->“高级”中启用此功能。"
+
+#: checks/sources.py:73
+msgid ""
+"Unfortunately, browser source hardware acceleration is not compatible "
+"with your system/graphics card. Because of this, browser sources will use"
+" extra CPU and may stutter. Try to use as few browser sources as "
+"possible."
+msgstr "不幸的是，浏览器源硬件加速与您的系统/显卡不兼容。因此，浏览器源将占用额外的 CPU 并且可能会出现卡顿。请尽量减少浏览器源的使用。"
+
+#: checks/sources.py:103
+msgid "No Scenes/Sources"
+msgstr "没有场景/源"
+
+#: checks/sources.py:105
+msgid ""
+"There are neither scenes nor sources added to OBS. You won't be able to "
+"record anything but a black screen without adding sources to your scenes."
+msgstr "OBS 中既没有添加场景，也没有添加源。如果不添加源到场景中，您将无法录制任何内容，只能录制黑屏。"
+
+#: checks/sources.py:109
+#, python-brace-format
+msgid "If you're new to OBS Studio, check out our {}4 Step Quickstart Guide{}."
+msgstr "如果您是 OBS 工作室版的新用户，请查看我们的 {}4 步快速入门指南{}。"
+
+#: checks/sources.py:116
+#, python-brace-format
+msgid "For a more detailed guide, check out our {}Overview Guide{}."
+msgstr "有关更详细的指南，请查看我们的{}概述指南{}。"
+
+#: checks/sources.py:123
+msgid ""
+"If you want a video guide, check out these community created video "
+"tutorials:"
+msgstr "如果您想要视频指南，请查看这些社区创建的视频教程："
+
+#: checks/sources.py:126
+#, python-brace-format
+msgid " - {}Nerd or Die's quickstart video guide{}"
+msgstr " - {}Nerd or Die 的快速入门视频指南{}"
+
+#: checks/sources.py:131
+#, python-brace-format
+msgid " - {}EposVox's Master Class{}"
+msgstr " - {}EposVox 的大师课{}"
+
+#: checks/sources.py:146
+msgid "Missing Browser Components"
+msgstr "缺少浏览器组件"
+
+#: checks/sources.py:148
+#, python-brace-format
+msgid ""
+"Browser components of OBS have been mistakenly removed or blocked. "
+"Reinstalling OBS from the {}OBS website{} should restore them."
+msgstr "OBS 的浏览器组件被错误删除或阻止。从 {}OBS 网站{}重新安装 OBS 应该可以恢复它们。"
+
+#: checks/vars.py:22
+msgid "To make a clean log file, please follow these steps:"
+msgstr "要生成干净的日志文件，请按照以下步骤操作："
+
+#: checks/vars.py:24
+msgid "1) Restart OBS."
+msgstr "1) 重启 OBS。"
+
+#: checks/vars.py:27
+msgid ""
+"2) Start your stream/recording for about 30 seconds. Make sure you "
+"replicate any issues as best you can, which means having any games/apps "
+"open and captured, etc."
+msgstr "2) 开始直播/录制约 30 秒。确保尽可能完美地复现所有问题，例如打开并录制所有游戏/应用程序等。"
+
+#: checks/vars.py:30
+msgid "3) Stop your stream/recording."
+msgstr "3) 停止直播/录制。"
+
+#: checks/vars.py:33
+msgid ""
+"4) Select Help -> Log Files -> Upload Current Log File. Send that link "
+"via this troubleshooting tool or whichever support chat you are using."
+msgstr "4) 选择“帮助”->“日志文件”->“上传当前日志文件”。通过此故障排除工具或您正在使用的任何支持聊天工具发送该链接。"
+
+#: checks/windows.py:31 checks/windows.py:44
+msgid "Wrong GPU"
+msgstr "错误的 GPU"
+
+#: checks/windows.py:33
+#, python-brace-format
+msgid ""
+"Your Laptop has two GPUs. OBS is running on the weak integrated Intel "
+"GPU. For better performance as well as game capture being available you "
+"should run OBS on the dedicated GPU. Check the {}Laptop Troubleshooting "
+"Guide{}."
+msgstr ""
+"您的笔记本电脑有两个 GPU。OBS 在性能较弱的集成 Intel GPU 上运行。为了获得更佳性能并支持游戏捕捉，您应该在专用 GPU 上运行 "
+"OBS。请查看{}笔记本电脑故障排除指南{}。"
+
+#: checks/windows.py:46
+#, python-brace-format
+msgid ""
+"Your Laptop has two GPUs. OBS is running on the weak integrated AMD Vega "
+"GPU. For better performance as well as game capture being available you "
+"should run OBS on the dedicated GPU. Check the {}Laptop Troubleshooting "
+"Guide{}."
+msgstr ""
+"您的笔记本电脑有两个 GPU。OBS 运行在性能较弱的集成 AMD Vega GPU 上。为了获得更佳性能并支持游戏捕捉，您应该在专用 GPU "
+"上运行 OBS。请查看{}笔记本电脑故障排除指南{}。"
+
+#: checks/windows.py:55
+msgid "Integrated GPU"
+msgstr "集成 GPU"
+
+#: checks/windows.py:57
+msgid ""
+"OBS is running on an Intel iGPU. This hardware is generally not powerful "
+"enough to be used for both gaming and running obs. Situations where only "
+"sources from e.g. cameras and capture cards are used might work."
+msgstr "OBS 在 Intel iGPU 上运行。该硬件通常性能不足以同时用于游戏和运行 OBS。仅使用摄像头和采集卡等源的情况下可能适用。"
+
+#: checks/windows.py:135
+msgid "Mismatched Refresh Rates"
+msgstr "刷新率不匹配"
+
+#: checks/windows.py:137
+#, python-brace-format
+msgid ""
+"The version of Windows you are running has a limitation which causes "
+"performance issues in hardware accelerated applications (such as games) "
+"if multiple monitors with different refresh rates are present. Your "
+"system's monitors have {} different refresh rates, so you are affected by"
+" this limitation."
+msgstr ""
+"您所运行的 Windows 版本存在一个限制，如果存在多个刷新率不同的显示器，则会导致硬件加速应用程序（例如游戏）出现性能问题。您系统的显示器有 "
+"{} 个不同的刷新率，因此您会受到此限制的影响。"
+
+#: checks/windows.py:141
+#, python-brace-format
+msgid ""
+"To fix this issue, we recommend updating to the Windows 10 May 2020 "
+"Update. Follow {}these instructions{} if you're not sure how to update."
+msgstr "为了解决此问题，我们建议更新到 Windows 10 2020 年 5 月更新。如果您不确定如何更新，请按照{}这些说明{}操作。"
+
+#: checks/windows.py:215
+msgid "OBS Sample Rate: "
+msgstr "OBS 采样率："
+
+#: checks/windows.py:224
+msgid "Mismatched Sample Rates"
+msgstr "采样率不匹配"
+
+#: checks/windows.py:226
+msgid ""
+"At least one of your audio devices has a sample rate that doesn't match "
+"the rest. This can result in audio drift over time or sound distortion. "
+"Check your audio devices in Windows settings (both Playback and "
+"Recording) and ensure the Default Format (under Advanced) is consistent. "
+"48000 Hz is recommended."
+msgstr ""
+"您的音频设备中至少有一个采样率与其他设备不匹配。这可能会导致音频随时间推移而出现偏移或声音失真。请在 Windows "
+"设置（包括“播放”和“录制”）中检查您的音频设备，并确保“默认格式”（在“高级”下）保持一致。建议使用 48000 Hz。"
+
+#: checks/windows.py:236
+msgid "No GPU driver available"
+msgstr "没有可用的 GPU 驱动程序"
+
+#: checks/windows.py:238
+msgid ""
+"Your GPU is using the Microsoft Basic Render Driver, which is a pure "
+"software render. This will cause very high CPU load when used with OBS. "
+"Make sure to install proper drivers for your GPU. To use OBS in a virtual"
+" machine, you need to enable GPU passthrough."
+msgstr ""
+"您的 GPU 使用的是 Microsoft 基本显示驱动程序，这是一种纯软件渲染。与 OBS 一起使用时会导致 CPU 负载过高。请确保为您的 "
+"GPU 安装合适的驱动程序。要在虚拟机中使用 OBS，您需要启用 GPU 直通。"
+
+#: checks/windows.py:248
+msgid "OpenGL Renderer"
+msgstr "OpenGL 渲染器"
+
+#: checks/windows.py:250
+msgid ""
+"The OpenGL renderer should not be used on Windows, as it is not well "
+"optimized and can have visual artifacting. Switch back to the Direct3D "
+"renderer in Settings -> Advanced."
+msgstr ""
+"OpenGL 渲染器不应该在 Windows 上使用，因为它优化不佳，可能会出现视觉伪影。请在“设置”->“高级”中切换回 Direct3D "
+"渲染器。"
+
+#: checks/windows.py:259
+msgid "Windows 10 Game DVR"
+msgstr "Windows 10 游戏 DVR"
+
+#: checks/windows.py:261
+#, python-brace-format
+msgid ""
+"To ensure that OBS Studio has the hardware resources it needs for "
+"realtime streaming and recording, we recommend disabling the \"Game DVR "
+"Background Recording\" feature via {}these instructions{}."
+msgstr "为确保 OBS 工作室版拥有直播和录制所需的硬件资源，我们建议通过{}这些说明{}禁用“游戏 DVR 后台录制”功能。"
+
+#: checks/windows.py:281 checks/windows.py:294
+msgid "Windows Game Mode"
+msgstr "Windows 游戏模式"
+
+#: checks/windows.py:283
+#, python-brace-format
+msgid ""
+"In some versions of Windows 10 (prior to version 1809), the \"Game Mode\""
+" feature interferes with OBS Studio's normal functionality by starving it"
+" of CPU and GPU resources. We recommend disabling it via {}these "
+"instructions{}."
+msgstr ""
+"在某些 Windows 10 版本（1809 之前的版本）中，“游戏模式”功能会占用 CPU 和 GPU 资源，从而影响 OBS "
+"工作室版的正常功能。我们建议您按照{}这些说明{}禁用此功能。"
+
+#: checks/windows.py:296
+#, python-brace-format
+msgid ""
+"In Windows 10 versions 1809 and newer, we recommend that \"Game Mode\" be"
+" enabled for maximum gaming performance. Game Mode can be enabled via the"
+" Windows 10 \"Settings\" app, under Gaming -> {}Game Mode{}."
+msgstr ""
+"在 Windows 10 1809 及更高版本中，我们建议启用“游戏模式”以获得最佳游戏性能。您可以通过 Windows 10 "
+"的“设置”应用，在“游戏”->{}“游戏模式”{}下启用游戏模式。"
+
+#: checks/windows.py:307
+#, python-brace-format
+msgid ""
+"The Hardware-accelerated GPU scheduling (\"HAGS\") feature added with "
+"Windows 10 is currently known to cause performance and capture issues "
+"with OBS, games and overlay tools. It's an experimental feature and we "
+"recommend disabling it via {}this screen{} or {}these instructions{}."
+msgstr ""
+"Windows 10 新增的硬件加速 GPU 计划（“HAGS”）功能目前已知会导致 "
+"OBS、游戏和叠加工具出现性能和采集问题。该功能仍属实验性质，我们建议通过{}此界面{}或{}这些说明{}将其禁用。"
+
+#: checks/windows.py:315 checks/windows.py:319 checks/windows.py:321
+msgid "Hardware-accelerated GPU Scheduler"
+msgstr "硬件加速 GPU 计划"
+
+#: checks/windows.py:330
+msgid "NVENC Not Supported"
+msgstr "不支持 NVENC"
+
+#: checks/windows.py:332
+msgid ""
+"The NVENC Encoder is not supported on the NVIDIA 940 and 940MX. Recording"
+" fails to start because of this. Please select \"Software (x264)\" or "
+"\"Hardware (QSV)\" as encoder instead in Settings -> Output."
+msgstr ""
+"NVENC 编码器不支持 NVIDIA 940 和 940MX。因此录制无法开始。请在“设置”->“输出”中选择“软件 (x264)”或“硬件 "
+"(QSV)”作为编码器。"
+
+#: checks/windows.py:392
+#, python-brace-format
+msgid ""
+"You are running Windows 11 Insider build {}. Some checks that are "
+"applicable only to specific Windows versions will not be performed. Also,"
+" because Insider builds are test versions, you may have problems that "
+"would not happen with release versions of Windows 11."
+msgstr ""
+"您正在运行 Windows 11 预览体验版 build {}。某些仅适用于特定 Windows "
+"版本的检查将不会执行。此外，由于预览体验版属于测试版本，您可能会遇到在正式版 Windows 11 中不会出现的问题。"
+
+#: checks/windows.py:394
+msgid "Windows 11 Insider Build"
+msgstr "Windows 11 预览体验版"
+
+#: checks/windows.py:397
+#, python-brace-format
+msgid ""
+"You are running an unknown Windows 10 release (build {}), which means you"
+" are probably using an Insider build. Some checks that are applicable "
+"only to specific Windows versions will not be performed. Also, because "
+"Insider builds are test versions, you may have problems that would not "
+"happen with release versions of Windows."
+msgstr ""
+"您正在运行未知版本的 Windows 10（build {}），这意味着您可能正在使用预览体验版。某些仅适用于特定 Windows "
+"版本的检查将不会执行。此外，由于预览体验版属于测试版本，您可能会遇到在正式版 Windows 中不会出现的问题。"
+
+#: checks/windows.py:399
+msgid "Windows 10 Version Unknown"
+msgstr "未知版本的 Windows 10"
+
+#: checks/windows.py:404
+#, python-brace-format
+msgid ""
+"You are running {}, which has not been supported by Microsoft since "
+"{}{}{}. We recommend updating to the latest Windows release to ensure "
+"continued security, functionality, and compatibility."
+msgstr "您正在运行 {}，自 {}{}{} 起微软已不再支持。我们建议您升级到最新的 Windows 版本，以确保持续的安全性、功能性和兼容性。"
+
+#: checks/windows.py:420
+msgid "Windows 10 1903/1909"
+msgstr "Windows 10 1903/1909"
+
+#: checks/windows.py:422
+msgid ""
+"Due to a bug in OBS versions 24.0.3 and earlier, the exact release of "
+"Windows 10 you are using cannot be determined. You are using either "
+"release 1903, or release 1909. Fortunately, there were no major changes "
+"in behavior between Windows 10 release 1903 and Windows 10 release 1909, "
+"and instructions given here for release 1903 can also be used for release"
+" 1909, and vice versa."
+msgstr ""
+"由于 OBS 24.0.3 及更早版本存在错误，您所使用的 Windows 10 的具体版本无法确定。您使用的版本可能是 1903 版，也可能是 "
+"1909 版。幸运的是，Windows 10 1903 版和 1909 版之间的行为没有重大变化，此处针对 1903 版给出的说明也适用于 "
+"1909 版，反之亦然。"
+
+#: checks/windows.py:432
+#, python-brace-format
+msgid "You are running {}, which will be supported by Microsoft until {}{}{}."
+msgstr "您正在运行 {}，Microsoft 将支持它直至 {}{}{}。"
+
+#: checks/windows.py:441
+#, python-brace-format
+msgid ""
+"You are running {}, for which Microsoft has not yet announced an end of "
+"life date."
+msgstr "您正在运行 {}，Microsoft 尚未宣布它的终止支持日期。"
+
+#: checks/windows.py:453
+msgid "Windows ARM64"
+msgstr "Windows ARM64"
+
+#: checks/windows.py:454
+msgid "You are running OBS Studio on an ARM64 Windows system."
+msgstr "您正在 ARM64 Windows 系统上运行 OBS 工作室版。"
+
+#: checks/windows.py:466 checks/windows.py:475
+msgid "Not Admin"
+msgstr "非管理员"
+
+#: checks/windows.py:468
+msgid ""
+"OBS is not running as Administrator. Because of this, OBS will not be "
+"able to Game Capture certain games, and it will not be able to request a "
+"higher GPU priority for itself -- which is the likely cause of the render"
+" lag you are currently experiencing. Run OBS as Administrator to help "
+"alleviate this problem."
+msgstr ""
+"OBS 未以管理员身份运行。因此，OBS 将无法采集某些游戏，也无法为自己申请更高的 GPU "
+"优先级——这可能是您当前遇到的渲染延迟的原因。请以管理员身份运行 OBS，以帮助缓解此问题。"
+
+#: checks/windows.py:477
+msgid ""
+"OBS is not running as Administrator. This can lead to OBS not being able "
+"to Game Capture certain games. If you are not running into issues, you "
+"can ignore this."
+msgstr "OBS 未以管理员身份运行。这可能导致 OBS 无法采集某些游戏。如果您没有遇到问题，可以忽略此项。"
+
+#: checks/windows.py:489
+msgid "32-bit OBS on 64-bit Windows"
+msgstr "64 位 Windows 上的 32 位 OBS"
+
+#: checks/windows.py:491
+msgid ""
+"You are running the 32 bit version of OBS on a 64 bit system. This will "
+"reduce performance and greatly increase the risk of crashes due to memory"
+" limitations. You should only use the 32 bit version if you have a "
+"capture device that lacks 64 bit drivers. Please run OBS using the 64-bit"
+" shortcut."
+msgstr ""
+"您正在 64 位系统上运行 32 位版本的 OBS。这会降低性能，并大大增加因内存限制而导致崩溃的风险。如果您的采集设备缺少 64 "
+"位驱动程序，则应该仅使用 32 位版本。请使用 64 位快捷方式运行 OBS。"
+
+#: checks/windows.py:500
+msgid "x64 OBS on Windows ARM64"
+msgstr "Windows ARM64 上的 x64 OBS"
+
+#: checks/windows.py:502
+msgid ""
+"You are running the x64 version of OBS on an ARM64 Windows system. This "
+"will greatly reduce performance due to the mandatory use of emulation."
+msgstr "您正在 ARM64 Windows 系统上运行 x64 版本的 OBS。这将由于强制使用仿真而大大降低性能。"
