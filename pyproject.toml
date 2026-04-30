@@ -1,0 +1,15 @@
+[project]
+name = "loganalyzer"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "ProgramRipper", email = "programripper@foxmail.com"},
+]
+dependencies = ["aiohttp~=3.13.5", "importlib-resources~=7.1.0", "requests~=2.33.1"]
+requires-python = ">=3.10"
+readme = "README.md"
+license = {text = "GPL-2.0-or-later"}
+
+
+[tool.pdm]
+distribution = false

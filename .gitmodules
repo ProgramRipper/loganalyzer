@@ -1,0 +1,3 @@
+[submodule "cloud-functions/loganalyzer"]
+	path = cloud-functions/loganalyzer
+	url = https://github.com/ProgramRipper/loganalyzer
